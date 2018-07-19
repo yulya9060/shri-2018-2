@@ -3,23 +3,27 @@
 
 .logo{
     display: block;
-    width: 108px;
-    height: 27px;
+    width: rem(108px);
+    height: rem(27px);
 }
 
 .header-left{
-    margin-right: 52px;
+    margin-right: rem(52px);
 }
 
 .header-nav {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    @include phones{
+        display: none;
+    }
 }
 
 .header__link{
     font-family:   Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: rem(16px);
     color: #333333;
     opacity: 0.6;
     font-weight: 700;
@@ -31,46 +35,59 @@
 }
 
 .header__item + .header__item{
-    margin-left: 28px;
+    margin-left: rem(28px);
 }
 
 /* content  */
 .main-content{
     flex-direction: column;
-    margin: 29px 0 13px 0;
+    margin: rem(29px) 0 rem(13px) 0;
 }
 
 .content__container{
     height: 60%;
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: rem(20px);
+
+    @include phones{
+        flex-wrap: wrap;
+    }
 }
 
 .favorite-devices{
     height: 25%;
     width: 100%;
-    padding-left: 40px;
+    padding-left: rem(40px);
 }
 .main{
     height: 100%;
     width: 50%;
-    margin-right: 13px;
+    margin-right: rem(13px);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @include phones{
+        width: 100%;
+        margin-right: 0;
+    }
 }
 
 .greeting{
     display: flex;
     flex-wrap: wrap;
-    padding: 19px 17px 0 26px;
+    padding: rem(19px) rem(17px) 0 rem(26px);
     width: 100%;
     background-image: url('../../images/greeting.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 20px;
-    min-height: 331px;
-    margin-top: 20px;
+    min-height: rem(331px);
+    margin-top: rem(20px);
+
+    @include phones{
+        padding: rem(19px) 0 0 rem(26px);
+    }
 }
 
 .greeting-main{
@@ -78,11 +95,15 @@
     width: 66%;
     flex-direction: column;
     align-items: flex-start;
+
+    @include phones{
+        width: 100%;
+    }
 }
 
 .greeting__title{
     font-family:   'Arial-BoldMT',Arial, Helvetica, sans-serif;
-    font-size: 27px;
+    font-size: rem(27px);
     color: #333333;
     font-weight: 700;
 }
@@ -90,7 +111,7 @@
 .temperature-home{
     display: flex;
     flex-direction: column;
-    margin-right: 25px;
+    margin-right: rem(25px);
 }
 
 .temperature-degree_fifty{
@@ -104,12 +125,12 @@
 
 .greeting__temperature{
     display: flex;
-    padding-top: 22px;
+    padding-top: rem(22px);
 }
 
 .greeting__desc{
     font-family:   'Arial-MT',Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: rem(14px);
     color: #333333;
     font-weight: normal;
 }
@@ -117,20 +138,20 @@
 .temperature-title{
     font-family:   'Arial-MT',Arial, Helvetica, sans-serif;
     font-weight: normal;
-    font-size: 14px;
+    font-size: rem(14px);
 color: #858585;
 }
 
 .temperature-img{
-    width: 24px;
-    height: 24px;
-    margin-left: 8px;
+    width: rem(24px);
+    height: rem(24px);
+    margin-left: rem(8px);
 }
 
 .temperature-degree{
     font-family:   'Arial-BoldMT',Arial, Helvetica, sans-serif;
     font-weight: 700;
-    font-size: 36px;
+    font-size: rem(36px);
     color: #333333;
     letter-spacing: 0;
 }
@@ -139,12 +160,16 @@ color: #858585;
 .favorite-scenarios{
     height: 100%;
     width: 50%;
-    margin-left: 13px;
+    margin-left: rem(13px);
+
+    @include phones{
+        width: 100%;
+    }
 }
 
 .main__title{
     font-family:   'Arial-BoldMT',Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: rem(18px);
     color: #333333;
     font-weight: 700;
 }
@@ -161,29 +186,29 @@ color: #858585;
     flex-direction: column;
     background: #F7F7F7;
     border-radius: 20px;
-    width: 200px;
-    height: 120px;
-    padding: 14px;
+    width: rem(200px);
+    height: rem(120px);
+    padding: rem(14px);
 }
 
 
 .scenario__img{
-    width: 24px;
-    height: 24px;
+    width: rem(24px);
+    height: rem(24px);
     flex:0 0 auto;
 }
 
 .scenario__title{
     font-family:   'Arial-BoldMT',Arial, Helvetica, sans-serif;
     font-weight: 700;
-font-size: 14px;
+font-size: rem(14px);
 color: #333333;
 letter-spacing: 0;
     flex: 1 0 auto;
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    padding-right: 5px;
+    padding-right: rem(5px);
     align-items: flex-end;
     word-break: break-all;
 }
@@ -191,7 +216,7 @@ letter-spacing: 0;
 .scenario__sheduling{
     font-family:   'Arial-MT',Arial, Helvetica, sans-serif;
     font-weight: normal;
-    font-size: 12px;
+    font-size: rem(12px);
     color: #858585;
     letter-spacing: 0;
     flex: 0 0 auto;
@@ -208,18 +233,26 @@ letter-spacing: 0;
 
   .carousel_vertical{
     width: 34%;
+
+    @include phones{
+        width: 100%;
+    }
   }
   
   .arrow {
     position: absolute;
     padding: 0;
     display: flex;
+
+    @include phones{
+        display: none;
+    }
 }
 
   .arrow__img{
-      width: 16px;
-      height: 16px;
-      margin: 13px 0;
+      width: rem(16px);
+      height: rem(16px);
+      margin: rem(13px) 0;
   }
   
   .arrow:focus {
@@ -241,8 +274,12 @@ letter-spacing: 0;
   }
   
   .gallery_vertical {
-    height: 260px;
-  }
+    height: rem(260px);
+
+    @include phones{
+        height: auto;
+    }
+}
 
   .gallery {
     overflow: hidden;
@@ -251,7 +288,7 @@ letter-spacing: 0;
   
   .gallery__nav {
     height: 100%;
-    width: 9999px;
+    width: rem(9999px);
     margin: 0;
     padding: 0;
     display:flex;
@@ -262,15 +299,22 @@ letter-spacing: 0;
   }
 
   .gallery__nav_vertical{
-    height: 9999px;
+    height: rem(9999px);
     width: 100%;
     flex-direction:column;
     transition: margin-top 250ms;
+
+    @include phones{
+        flex-direction: row;
+        height: 100%;
+        width: rem(9999px);
+        transition: margin-left 250ms;
+    }
   }
   
  
   .gallery__nav3 {
-    height: 9999px;
+    height: rem(9999px);
     width: 100%;
     margin: 0;
     padding: 0;
@@ -289,26 +333,35 @@ letter-spacing: 0;
   .gallery__item_vertical {
     display:inline-block;
     width: 100%;
+
+    @include phones{
+        width: auto;
+    }
   }
 
 
   .gallery__item+.gallery__item{
-    margin-left: 15px;
+    margin-left: rem(15px);
 }
 
 .gallery__item_vertical+.gallery__item_vertical{
-    margin-top: 16px;
+    margin-top: rem(16px);
     margin-left:0;
+
+    @include phones{
+        margin-left: rem(20px);
+        margin-top:0;
+    }
 }
 
 .gallery2__prev {
-    top: -39px;
-    right: 56px;
+    top: rem(-39px);
+    right: rem(56px);
 }
 
 .gallery2__next {
-    top: -39px;
-    right: 23px;
+    top: rem(-39px);
+    right: rem(23px);
     transform: rotate(-180deg);
 }
 /* ---- end -----*/
@@ -320,30 +373,30 @@ letter-spacing: 0;
 }
 
 .gallery1__prev{
-    top:7px;
-    right: 28px;
+    top:rem(7px);
+    right: rem(28px);
 }
 
 .gallery1__next {
-    top: 7px;
+    top: rem(7px);
     transform: rotate(-180deg);
-    right: -5px;
+    right: rem(-5px);
 }
 
 .gallery1__img{
-    width: 14px;
-    height: 14px;
+    width: rem(14px);
+    height: rem(14px);
   }
 
   .gallery1__item {
     width: 32%;
     height: 32%;
-    margin-bottom: 13px;
+    margin-bottom: rem(13px);
 }
 
 
 .gallery1__item + .gallery1__item{
-    margin-right: 12px;
+    margin-right: rem(12px);
 }
 
 .gallery1__item:nth-child(3n){
@@ -351,15 +404,15 @@ letter-spacing: 0;
 }
 
 .gallery1__item:first-child{
-    margin-right: 12px;
+    margin-right: rem(12px);
 }
 
 .scenario_heigth100{
-    height: 100px;
+    height: rem(100px);
 }
 
 .carousel1{
-    margin-top: 20px;
+    margin-top: rem(20px);
 }
 /* ---- end favorite-scenarios ---- */
 
@@ -368,27 +421,31 @@ letter-spacing: 0;
 
 .favorite-devices__title{
     display: flex;
-    margin-bottom: 25px;
+    margin-bottom: rem(25px);
 }
 
 .favorite-devices__items{
     display: flex;
     flex-wrap: wrap;
-    margin-left: 10px;
+    margin-left: rem(10px);
+
+    @include phones{
+        display: none;
+    }
 }
 
 .favorite-devices__item+ .favorite-devices__item{
-    margin-left: 15px;
+    margin-left: rem(15px);
 }
 
 .favorite-devices__link{
     font-family:  'ArialMT', Arial, Helvetica, sans-serif;
     font-weight: normal;
-    font-size: 13px;
+    font-size: rem(13px);
     color: #000000;
     background-color: #FFD93E;
     border-radius: 20px;
-    padding: 8px 13px;
+    padding: rem(8px) rem(13px);
 }
 
 /* ---- end favorite-devices ---- */
@@ -398,10 +455,15 @@ letter-spacing: 0;
 
 .footer__nav{
     display: flex;
+
+    @include phones{
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 }
 .footer__text{
 font-family:  'ArialMT', Arial, Helvetica, sans-serif;
-font-size: 12px;
+font-size: rem(12px);
 color: #858585;
 font-weight: normal;
 letter-spacing: 0.01px;
@@ -409,9 +471,80 @@ text-align: left;
 }
 
 .footer__item+.footer__item{
-    margin-left: 15px;
+    margin-left: rem(15px);
 }
 
 .footer__link:hover{
     color: #333333;
 }
+
+
+/* ---menuToggle--- */
+.hamburger-menu{
+    display: none;
+    
+    @include phones {
+        display: flex;
+        width: rem(20px);
+    height: rem(20px);
+    position: relative;
+    }
+}
+  #menuToggle {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+   
+  }
+  
+  #menuToggle input {
+    display: flex;
+    width: rem(16px);
+    height: rem(16px);
+    position: absolute;
+    cursor: pointer;
+    opacity: 0; /* hide input */
+    z-index: 1; /* top of the menu */
+  }
+  
+  #menuToggle span{
+    width: rem(16px);
+    height: rem(2px);
+    margin-bottom: rem(3px);
+    background: #7f8fa6;
+    border-radius: 4px;
+    -webkit-transition: all .5s cubic-bezier(.08,.81,.87,.71);
+    -moz-transition: all .5s cubic-bezier(.08,.81,.87,.71);
+    -ms-transition: all .5s cubic-bezier(.08,.81,.87,.71);
+    -o-transition: all .5s cubic-bezier(.08,.81,.87,.71);
+    transition: all .5s cubic-bezier(.08,.81,.87,.71);
+  }
+  
+  #span1 {
+    transform-origin: 4px 0px;
+  }
+  
+  #span3 {
+    transform-origin: bottom right;
+  }
+  
+  #menuToggle input:checked ~ #span1 {
+    background-color: #0c2461;
+    transform: rotate(45deg) translate(4px);
+  }
+  #menuToggle input:checked ~ #span2 {
+    background-color: #0c2461;
+    transform: rotate(495deg);   
+  }
+  #menuToggle input:checked ~ #span3 {
+    background-color: #0c2461;
+    transform: rotate(45deg);
+    opacity: 0;
+  }
+/* ---menuToggle--- */
