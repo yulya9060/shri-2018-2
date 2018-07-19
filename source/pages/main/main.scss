@@ -37,12 +37,13 @@
 /* content  */
 .main-content{
     flex-direction: column;
-    margin:29px 0 3px 0;
+    margin: 29px 0 13px 0;
 }
 
 .content__container{
     height: 60%;
     display: flex;
+    margin-bottom: 20px;
 }
 
 .favorite-devices{
@@ -62,7 +63,7 @@
 .greeting{
     display: flex;
     flex-wrap: wrap;
-    padding: 20px 20px 0 25px;
+    padding: 19px 17px 0 26px;
     width: 100%;
     background-image: url('../../images/greeting.jpg');
     background-repeat: no-repeat;
@@ -74,7 +75,7 @@
 
 .greeting-main{
     display: flex;
-    width: 64%;
+    width: 66%;
     flex-direction: column;
     align-items: flex-start;
 }
@@ -103,7 +104,7 @@
 
 .greeting__temperature{
     display: flex;
-    padding-top: 25px;
+    padding-top: 22px;
 }
 
 .greeting__desc{
@@ -123,6 +124,7 @@ color: #858585;
 .temperature-img{
     width: 24px;
     height: 24px;
+    margin-left: 8px;
 }
 
 .temperature-degree{
@@ -159,10 +161,11 @@ color: #858585;
     flex-direction: column;
     background: #F7F7F7;
     border-radius: 20px;
-    width: 100%;
-    min-height: 100px;
+    width: 200px;
+    height: 120px;
     padding: 14px;
 }
+
 
 .scenario__img{
     width: 24px;
@@ -204,7 +207,7 @@ letter-spacing: 0;
   }
 
   .carousel_vertical{
-    width: 36%;
+    width: 34%;
   }
   
   .arrow {
@@ -294,18 +297,18 @@ letter-spacing: 0;
 }
 
 .gallery__item_vertical+.gallery__item_vertical{
-    margin-top: 15px;
+    margin-top: 16px;
     margin-left:0;
 }
 
-.gallery2__prev{
+.gallery2__prev {
     top: -39px;
-    right: 60px;
+    right: 56px;
 }
 
 .gallery2__next {
     top: -39px;
-    right: 40px;
+    right: 23px;
     transform: rotate(-180deg);
 }
 /* ---- end -----*/
@@ -317,14 +320,14 @@ letter-spacing: 0;
 }
 
 .gallery1__prev{
-    top:3px;
-    right: 22px;
+    top:7px;
+    right: 28px;
 }
 
 .gallery1__next {
-    top: 3px;
+    top: 7px;
     transform: rotate(-180deg);
-    right: 2px;
+    right: -5px;
 }
 
 .gallery1__img{
@@ -332,10 +335,10 @@ letter-spacing: 0;
     height: 14px;
   }
 
-.gallery1__item{
+  .gallery1__item {
     width: 32%;
     height: 32%;
-    margin-bottom: 6px;
+    margin-bottom: 13px;
 }
 
 
@@ -371,7 +374,7 @@ letter-spacing: 0;
 .favorite-devices__items{
     display: flex;
     flex-wrap: wrap;
-    margin-left: 13px;
+    margin-left: 10px;
 }
 
 .favorite-devices__item+ .favorite-devices__item{
@@ -385,7 +388,7 @@ letter-spacing: 0;
     color: #000000;
     background-color: #FFD93E;
     border-radius: 20px;
-    padding: 8px 15px;
+    padding: 8px 13px;
 }
 
 /* ---- end favorite-devices ---- */
@@ -406,7 +409,7 @@ text-align: left;
 }
 
 .footer__item+.footer__item{
-    margin-left: 28px;
+    margin-left: 15px;
 }
 
 .footer__link:hover{
