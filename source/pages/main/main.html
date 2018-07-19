@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container header__container">
+                <div class="header-left">
+                    <a href="#" class="logo">
+                        <img alt="" class="logo__img" src=<%-require( '../../images/logo@2x.png') %>>
+                    </a>
+                </div>
+                <nav class="header-nav">
+                    <li class="header__item">
+                        <a href="#" class="header__link">Сводка</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#" class="header__link">Устройства</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#" class="header__link">Сценарии</a>
+                    </li>
+                </nav>
+            </div>
+        </header>
+        <section class="content main-content">
+            <div class="container content__container">
+                <div class="main">
+                    <h2 class="main__title">Главное</h2>
+                    <div class="greeting">
+                        <div class="greeting-main">
+                            <h2 class="greeting__title">Привет, Волан де Морт!</h2>
+                            <span class="greeting__desc">Двери и окна закрыты, сигнализация включена</span>
+                            <div class="greeting__temperature">
+                                <div class="temperature-home">
+                                    <span class="temperature-title">Дома</span>
+                                    <span class="temperature-degree">+23</span>
+                                </div>
+                                <div class="temperature-street">
+                                    <span class="temperature-title temperature-title">За окном</span>
+                                    <div class="temperature-street-drizzle">
+                                        <span class="temperature-degree">+19</span>
+                                        <div class="temperature-img">
+                                            <img src=<%-require( '../../images/cloud-drizzle@2x.png') %> alt="дождь"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="carousel" class="carousel">
+                            <div class="gallery">
+                                <ul class="gallery__nav">
+                                    <li class="gallery__item">
+                                        <div class="scenario">
+                                            <div class="scenario__img">
+                                                <img src=<%-require( '../../images/icon_temperature@2x.png') %> alt="дождь">
+                                            </div>
+                                            <div class="scenario__title">
+                                                <p>
+                                                    Philips Cooler  Philips Cooler  Philips Cooler  Philips Cooler  Philips Cooler  Philips Cooler
+                                                </p>
+                                            </div>
+                                            <span class="scenario__sheduling">Начнет охлаждать в 17:30</span>
+                                        </div>
+                                    </li>
+                                    <li class="gallery__item">
+                                            <div class="scenario">
+                                                <div class="scenario__img">
+                                                    <img src=<%-require( '../../images/icon_temperature@2x.png') %> alt="дождь">
+                                                </div>
+                                                <div class="scenario__title">
+                                                    <p>
+                                                        Philips Cooler
+                                                    </p>
+                                                </div>
+                                                <span class="scenario__sheduling">Начнет охлаждать в 17:30</span>
+                                            </div>
+                                        </li>
+                                </ul>
+                            </div>
+                            <button class="arrow down">
+                                <div class="arrow__img">
+                                        <img src=<%-require( '../../images/Icons_/Arrow Double_/M@2x.png') %> alt="дождь">
+                                </div>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="favorite-scenarios">
+                    <h2 class="main__title">Избранные сценарии</h2>
+                    <div id="carousel2" class="carousel1">
+                        <div class="gallery1">
+                            <ul class="gallery1__nav">
+                                <li class="gallery1__item">
+                                    <div class="scenario">
+                                        <div class="scenario__img">
+                                            <img src=<%-require( '../../images/icon_temperature@2x.png') %> alt="дождь">
+                                        </div>
+                                        <div class="scenario__title">
+                                            <p>
+Выключить весь свет в доме и во дворе                                            </p>
+                                        </div>
+                                        <span class="scenario__sheduling">Начнет охлаждать в 17:30</span>
+                                    </div>
+                                </li>
+                                <li class="gallery1__item">
+                                    <div class="scenario">
+                                        <div class="scenario__img">
+                                            <img src=<%-require( '../../images/icon_temperature@2x.png') %> alt="дождь">
+                                        </div>
+                                        <div class="scenario__title">
+                                            <p>
+                                               Я ухожу
+                                            </p>
+                                        </div>
+                                        <span class="scenario__sheduling">Начнет охлаждать в 17:30</span>
+                                    </div>
+                                </li>
+                                <li class="gallery1__item">
+                                    <div class="scenario">
+                                        <div class="scenario__img">
+                                            <img src=<%-require( '../../images/icon_temperature@2x.png') %> alt="дождь">
+                                        </div>
+                                        <div class="scenario__title">
+                                            <p>
+Включить весь свет в коридоре                                            </p>
+                                        </div>
+                                        <!-- <span class="scenario__sheduling">Начнет охлаждать в 17:30</span> -->
+                                    </div>
+                                </li>
+                                <li class="gallery1__item">
+                                    <div class="scenario">
+                                        <div class="scenario__img">
+                                            <img src=<%-require( '../../images/icon_temperature@2x.png') %> alt="дождь">
+                                        </div>
+                                        <div class="scenario__title">
+                                            <p>
+                                               Набрать горячую ванну
+                                            </p>
+                                        </div>
+                                        <span class="scenario__sheduling">Начнет охлаждать в 17:30</span>
+                                    </div>
+                                </li>
+                                <li class="gallery1__item">
+                                    <div class="scenario">
+                                        <div class="scenario__img">
+                                            <img src=<%-require( '../../images/icon_temperature@2x.png') %> alt="дождь">
+                                        </div>
+                                        <div class="scenario__title">
+                                            <p>
+                                               Сделать пол теплым во всей квартире
+                                            </p>
+                                        </div>
+                                        <span class="scenario__sheduling">Начнет охлаждать в 17:30</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="arrow gallery1__prev">
+                            <div class="gallery1__img">
+                                    <img src=<%-require( '../../images/Icons_/arrow_Right/arrowRight@2x.png') %> alt="дождь">
+                            </div>
+                        </button>
+                        <button class="arrow gallery1__next">
+                            <div class="gallery1__img">
+                                    <img src=<%-require( '../../images/Icons_/arrow_Right/arrowRight@2x.png') %> alt="дождь">
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="favorite-devices" style="border:1px solid">
+                <div class="favorite-devices__title">
+                    <h2 class="main__title">Избранные устройства</h2>
+                    <nav class="favorite-devices__items">
+                        <li class="favorite-devices__item"><a href="#" class="favorite-devices__link">Все</a></li>
+                        <li class="favorite-devices__item"><a href="#" class="favorite-devices__link">Кухня</a></li>
+                        <li class="favorite-devices__item"><a href="#" class="favorite-devices__link">Зал</a></li>
+                        <li class="favorite-devices__item"><a href="#" class="favorite-devices__link">Лампочки</a></li>
+                        <li class="favorite-devices__item"><a href="#" class="favorite-devices__link">Камеры</a></li>
+                    </nav>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container footer__container">
+                <nav class="footer__nav">
+                    <li class="footer__item">
+                        <a href="#" class="footer__link footer__text">Помощь</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link footer__text">Обратная связь</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link footer__text">Разработчикам</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link footer__text">Условия использования</a>
+                    </li>
+                </nav>
+                <span class="copyright__year footer__text">&copy; 2001-20017 ООО "Яндекс"</span>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+@import './variables.scss';
+
+@mixin desctop {
+  @media screen and (min-width: $desctop) {
+    @content;
+  }
+}
+
+@mixin tablets {
+  @media screen and (min-width: $tablets) {
+    @content;
+  }
+}
+
+@mixin phones {
+  @media screen and (min-width: $phones) {
+    @content;
+  }
+}
