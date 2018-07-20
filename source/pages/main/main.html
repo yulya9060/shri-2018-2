@@ -18,13 +18,11 @@
                     </a>
                 </div>
                 <div class="hamburger-menu">
-                    <div id="menuToggle">
-                        <input type="checkbox" />
-                        <span id="span1"></span>
-                        <span id="span2"></span>
-                        <span id="span3"></span>
-                    </div>
+                    <button class="hamburger-menu__btn">
+                        <img alt="" class="logo__img" src=<%-require( '../../images/icon_list_m.png') %>>
+                    </button>
                 </div>
+                <!-- <nav class="header-nav header-nav-hamburger_active"> -->
                 <nav class="header-nav">
                     <li class="header__item">
                         <a href="#" class="header__link">Сводка</a>
@@ -40,7 +38,7 @@
         </header>
         <section class="content main-content">
             <div class="container content__container">
-                <div class="main">
+                <div class="main container_padding">
                     <h2 class="main__title">Главное</h2>
                     <div class="greeting">
                         <div class="greeting-main">
@@ -127,12 +125,12 @@
 
                     </div>
                 </div>
-                <div class="favorite-scenarios">
+                <div class="favorite-scenarios container_paddingLeft">
                     <h2 class="main__title">Избранные сценарии</h2>
-                    <div id="carousel2" class="carousel1">
-                        <div class="gallery1">
-                            <ul class="gallery1__nav">
-                                <li class="gallery1__item">
+                    <div id="carousel_multi" class="carousel-multi">
+                        <div class="gallery-multi">
+                            <ul class="gallery-multi__nav">
+                                <li class="gallery-multi__item">
                                     <div class="scenario scenario_heigth100">
                                         <div class="scenario__img">
                                             <img src=<%-require( '../../images/icon_sun_2@2x.png') %> alt="дождь">
@@ -144,7 +142,7 @@
                                         <span class="scenario__sheduling">Начнет охлаждать в 17:30</span>
                                     </div>
                                 </li>
-                                <li class="gallery1__item">
+                                <li class="gallery-multi__item">
                                     <div class="scenario scenario_heigth100">
                                         <div class="scenario__img">
                                             <img src=<%-require( '../../images/icon_temperature@2x.png') %> alt="дождь">
@@ -156,7 +154,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="gallery1__item">
+                                <li class="gallery-multi__item">
                                     <div class="scenario scenario_heigth100">
                                         <div class="scenario__img">
                                             <img src=<%-require( '../../images/icon_temperature@2x.png') %> alt="дождь">
@@ -168,7 +166,7 @@
                                         <!-- <span class="scenario__sheduling">Начнет охлаждать в 17:30</span> -->
                                     </div>
                                 </li>
-                                <li class="gallery1__item">
+                                <li class="gallery-multi__item">
                                     <div class="scenario scenario_heigth100">
                                         <div class="scenario__img">
                                             <img src=<%-require( '../../images/icon_sun_2@2x.png') %> alt="дождь">
@@ -181,7 +179,7 @@
                                         <span class="scenario__sheduling">Начнет охлаждать в 17:30</span>
                                     </div>
                                 </li>
-                                <li class="gallery1__item">
+                                <li class="gallery-multi__item">
                                     <div class="scenario scenario_heigth100">
                                         <div class="scenario__img">
                                             <img src=<%-require( '../../images/icon_temperature@2x.png') %> alt="дождь">
@@ -194,7 +192,7 @@
                                         <span class="scenario__sheduling">Начнет охлаждать в 17:30</span>
                                     </div>
                                 </li>
-                                <li class="gallery1__item">
+                                <li class="gallery-multi__item">
                                     <div class="scenario scenario_heigth100">
                                         <div class="scenario__img">
                                             <img src=<%-require( '../../images/icon_temperature@2x.png') %> alt="дождь">
@@ -207,7 +205,7 @@
                                         <span class="scenario__sheduling">Начнет охлаждать в 17:30</span>
                                     </div>
                                 </li>
-                                <li class="gallery1__item">
+                                <li class="gallery-multi__item">
                                     <div class="scenario scenario_heigth100">
                                         <div class="scenario__img">
                                             <img src=<%-require( '../../images/icon_temperature@2x.png') %> alt="дождь">
@@ -220,7 +218,7 @@
                                         <span class="scenario__sheduling">Начнет охлаждать в 17:30</span>
                                     </div>
                                 </li>
-                                <li class="gallery1__item">
+                                <li class="gallery-multi__item">
                                     <div class="scenario scenario_heigth100">
                                         <div class="scenario__img">
                                             <img src=<%-require( '../../images/icon_sun_2@2x.png') %> alt="дождь">
@@ -233,7 +231,7 @@
                                         <span class="scenario__sheduling">Начнет охлаждать в 17:30</span>
                                     </div>
                                 </li>
-                                <li class="gallery1__item">
+                                <li class="gallery-multi__item">
                                     <div class="scenario scenario_heigth100">
                                         <div class="scenario__img">
                                             <img src=<%-require( '../../images/icon_temperature@2x.png') %> alt="дождь">
@@ -248,41 +246,65 @@
                                 </li>
                             </ul>
                         </div>
-                        <button class="arrow gallery1__prev">
-                            <div class="gallery1__img">
+                        <button class="arrow gallery-multi__prev">
+                            <div class="gallery-multi__img">
                                 <img src=<%-require( '../../images/Icons_/arrow_Right/arrowRight@2x.png') %> alt="дождь">
                             </div>
                         </button>
-                        <button class="arrow gallery1__next">
-                            <div class="gallery1__img">
+                        <button class="arrow gallery-multi__next">
+                            <div class="gallery-multi__img">
                                 <img src=<%-require( '../../images/Icons_/arrow_Right/arrowRight@2x.png') %> alt="дождь">
                             </div>
                         </button>
                     </div>
                 </div>
+
             </div>
             <div class="favorite-devices">
-                <div class="favorite-devices__title">
+                <div class="favorite-devices__title container_padding">
                     <h2 class="main__title">Избранные устройства</h2>
+                    <div class="menu-dropdown">
+                        <div class="menu-dropdown__title">
+                            <span class="favorite-devices__link favorite-devices__link_paddingRight">Все</span>
+                            <button class="menu-dropdown__btn">
+                                <img src=<%-require( '../../images/Icons_/arrow_Right/arrowRight@2x.png') %> alt="дождь">
+                            </button>
+                        </div>
+
+                        <nav class="menu-dropdown__items">
+                            <li class="favorite-devices__item">
+                                <span class="favorite-devices__link">Кухня</span>
+                            </li>
+                            <li class="favorite-devices__item">
+                                <span class="favorite-devices__link">Зал</span>
+                            </li>
+                            <li class="favorite-devices__item">
+                                <span class="favorite-devices__link">Лампочки</span>
+                            </li>
+                            <li class="favorite-devices__item">
+                                <span class="favorite-devices__link">Камеры</span>
+                            </li>
+                        </nav>
+                    </div>
                     <nav class="favorite-devices__items">
                         <li class="favorite-devices__item">
-                            <a href="#" class="favorite-devices__link">Все</a>
+                            <span class="favorite-devices__link">Все</span>
                         </li>
                         <li class="favorite-devices__item">
-                            <a href="#" class="favorite-devices__link">Кухня</a>
+                            <span class="favorite-devices__link">Кухня</span>
                         </li>
                         <li class="favorite-devices__item">
-                            <a href="#" class="favorite-devices__link">Зал</a>
+                            <span class="favorite-devices__link">Зал</span>
                         </li>
                         <li class="favorite-devices__item">
-                            <a href="#" class="favorite-devices__link">Лампочки</a>
+                            <span class="favorite-devices__link">Лампочки</span>
                         </li>
                         <li class="favorite-devices__item">
-                            <a href="#" class="favorite-devices__link">Камеры</a>
+                            <span class="favorite-devices__link">Камеры</span>
                         </li>
                     </nav>
                 </div>
-                <div id="carousel3" class="carousel">
+                <div id="favorite-devices" class="carousel carousel_paddingLeft">
                     <div class="gallery">
                         <ul class="gallery__nav">
                             <li class="gallery__item">
@@ -364,13 +386,13 @@
                             </li>
                         </ul>
                     </div>
-                    <button class="arrow gallery2__prev">
-                        <div class="gallery1__img">
+                    <button class="arrow gallery-horizontal__prev">
+                        <div class="gallery-multi__img">
                             <img src=<%-require( '../../images/Icons_/arrow_Right/arrowRight@2x.png') %> alt="дождь">
                         </div>
                     </button>
-                    <button class="arrow gallery2__next">
-                        <div class="gallery1__img">
+                    <button class="arrow gallery-horizontal__next">
+                        <div class="gallery-multi__img">
                             <img src=<%-require( '../../images/Icons_/arrow_Right/arrowRight@2x.png') %> alt="дождь">
                         </div>
                     </button>

@@ -88,6 +88,7 @@ input, label, select, button, textarea {
     background: 0;
     line-height: 1;
     font-family: Arial;
+    outline: none;
 }
 input:focus {
     outline: 0;
@@ -102,6 +103,7 @@ button, input[type=reset], input[type=button], input[type=submit], input[type=ch
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     cursor:pointer;
+    outline: none;
 }
 input[type=checkbox], input[type=radio] {
     width: 13px;
@@ -116,6 +118,7 @@ input[type=search] {
 button, input[type="reset"], input[type="button"], input[type="submit"] {
     overflow: visible;
     width: auto;
+    outline: none;
 }
 ::-webkit-file-upload-button {
     padding: 0;
