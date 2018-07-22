@@ -235,6 +235,18 @@
 
 /* vertical carousel*/
 
+#carousel-main, #carousel-multi{
+    @include phones{
+        display: none;
+    }
+}
+
+#carousel-main__mobile, #carousel-multi__mobile{
+    @include desctop{
+        display: none;
+    }
+}
+
 .carousel {
     position: relative;
     width: 100%;
@@ -244,9 +256,6 @@
 
 .carousel_vertical {
     width: 34%;
-    @include phones {
-        width: 100%;
-    }
 }
 
 .arrow {
@@ -284,9 +293,6 @@
 
 .gallery_vertical {
     height: rem(260px);
-    @include phones {
-        height: auto;
-    }
 }
 
 .gallery {
@@ -311,12 +317,6 @@
     width: 100%;
     flex-direction: column;
     transition: margin-top 250ms;
-    @include phones {
-        flex-direction: row;
-        height: 100%;
-        width: rem(9999px);
-        transition: margin-left 250ms;
-    }
 }
 
 .gallery__nav3 {
@@ -339,9 +339,6 @@
 .gallery__item_vertical {
     display: inline-block;
     width: 100%;
-    @include phones {
-        width: auto;
-    }
 }
 
 .gallery__item+.gallery__item {
@@ -351,10 +348,6 @@
 .gallery__item_vertical+.gallery__item_vertical {
     margin-top: rem(16px);
     margin-left: 0;
-    @include phones {
-        margin-left: rem(20px);
-        margin-top: 0;
-    }
 }
 
 .gallery-horizontal__prev {
