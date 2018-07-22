@@ -2,7 +2,6 @@ module.exports = function() {
     return {
         devServer: {
             contentBase: '/build',
-            filename: 'main.html',
             compress: true,
             stats: 'errors-only',
             port: 8081
