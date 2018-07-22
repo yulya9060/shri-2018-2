@@ -53,7 +53,6 @@
 }
 
 .content__container {
-    height: 60%;
     display: flex;
     margin-bottom: rem(20px);
     @include phones {
@@ -62,7 +61,6 @@
 }
 
 .main {
-    height: 100%;
     width: 50%;
     margin-right: rem(13px);
     display: flex;
@@ -160,7 +158,6 @@
 }
 
 .favorite-scenarios {
-    height: 100%;
     width: 50%;
     margin-left: rem(13px);
     @include phones {
@@ -464,7 +461,6 @@
 /* ---- favorite-devices ---- */
 
 .favorite-devices {
-    height: 25%;
     width: 100%;
     padding-left: rem(40px);
     @include phones {
