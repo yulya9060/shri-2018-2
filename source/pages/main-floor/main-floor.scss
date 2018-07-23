@@ -1,4 +1,8 @@
 @import '../../styles/base.scss';
+body {
+    overflow: hidden;
+}
+
 .logo {
     display: block;
     width: rem(108px);
@@ -201,13 +205,11 @@
         flex-grow: 1;
         margin-bottom: rem(10px);
     }
-
-    &__img{
+    &__img {
         width: rem(24px);
-            height: rem(24px);
+        height: rem(24px);
         display: none;
-
-        &_active{
+        &_active {
             display: block;
         }
     }
@@ -237,14 +239,16 @@
 
 /* vertical carousel*/
 
-#carousel-main, #carousel-multi{
-    @include phones{
+#carousel-main,
+#carousel-multi {
+    @include phones {
         display: none;
     }
 }
 
-#carousel-main__mobile, #carousel-multi__mobile{
-    @include desctop{
+#carousel-main__mobile,
+#carousel-multi__mobile {
+    @include desctop {
         display: none;
     }
 }
@@ -257,7 +261,7 @@
 }
 
 .carousel_vertical {
-    width: 200px;
+    width: 34%;
 }
 
 .btn {
@@ -269,28 +273,25 @@
     }
 }
 
-.arrow{
-    fill:rgba(152, 154, 156,.8);
-
-    &:hover{
-        fill:rgba(152, 154, 156,1);
+.arrow {
+    fill: rgba(152, 154, 156, .8);
+    &:hover {
+        fill: rgba(152, 154, 156, 1);
     }
-    &:active{
-        fill:rgba(51, 51, 51,1);
+    &:active {
+        fill: rgba(51, 51, 51, 1);
     }
 }
 
-.arrow-icon-prev{
+.svg {
     width: 100%;
-    height: 100%;;
+    height: 100%;
 }
 
 .btn__img {
     width: rem(16px);
     height: rem(16px);
     margin: rem(13px) 0;
-   
-
     &:hover {
         cursor: pointer;
     }
@@ -414,12 +415,11 @@
     height: rem(14px);
 }
 
-.gallery-multi__img_next{
+.gallery-multi__img_next {
     transform: rotate(-90deg);
 }
 
-
-.gallery-multi__img_prev{
+.gallery-multi__img_prev {
     transform: rotate(90deg);
 }
 
@@ -508,8 +508,7 @@
     &__title {
         position: relative;
     }
-
-    &__icon{
+    &__icon {
         width: 14px;
         height: 9px;
     }
@@ -532,7 +531,7 @@
     font-weight: 700;
     font-size: rem(13px);
     color: #000000;
-    background-color: rgba(247, 247, 247,1);
+    background-color: rgba(247, 247, 247, 1);
     border-radius: 20px;
     padding: rem(8px) rem(13px);
     position: relative;
@@ -540,17 +539,15 @@
         border-radius: 0;
         display: block;
         width: 100%;
-    text-align: end;
+        text-align: end;
     }
     &:hover {
         cursor: pointer;
         background-color: rgba(107, 107, 107, 0.2);
-
     }
     &:active {
         cursor: pointer;
-        background-color:  rgba(107, 107, 107, 0.8);
-
+        background-color: rgba(107, 107, 107, 0.8);
     }
     &_paddingRight {
         @include phones {
@@ -558,8 +555,12 @@
             border-radius: 20px;
         }
     }
-    &_active{
+    &_active {
         background-color: #FFD700;
+    }
+
+    &_padding{
+        padding:8px 15px;
     }
 }
 
@@ -608,4 +609,241 @@
     @include phones {
         display: flex;
     }
+}
+
+/*---popup-temperature--- */
+
+.popap {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: rgba(51, 51, 51, 0.50);
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-container {
+        display: flex;
+        width: rem(630px);
+        flex-direction: column;
+    }
+    &__floor{
+        width: rem(630px);
+        @include phones{
+            align-items: center;
+            padding: 20px;
+            width: 334px;
+        }
+    }
+    &-main {
+        background: #FFFFFF;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        padding:rem(25px);
+        width: 100%;
+        position: relative;
+        margin-bottom: rem(20px);
+
+        @include phones{
+            height: 492px;
+        }
+    }
+    &-title{
+        font-family: 'Arial-BoldMT', Arial, Helvetica, sans-serif;
+    font-size: rem(27px);
+    color: #333333;
+    font-weight: 700;
+    }
+
+    &-temperature{
+        font-family: 'Arial-BoldMT', Arial, Helvetica, sans-serif;
+    font-size: rem(36px);
+    color: #333333;
+    font-weight: 700;
+    }
+
+    &-icon{
+        width: rem(40px);
+        height: rem(40px);
+    }
+
+    &-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: rem(20px);
+    }
+
+    &-degree{
+        display: flex;
+        align-items: center;
+        &-floor{
+            @include phones{
+                display: none;
+            }
+        }
+    }
+
+    &-gallery-item+&-gallery-item{
+        margin-left: rem(7px);
+    }
+
+    &-items{
+        align-items: center;
+    }
+
+    &-sheduling{
+        position: absolute;
+        top:rem(60px);
+        content:'';
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    &-btns{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        @include phones{
+            flex-direction: column;
+        }
+    }
+
+    &-btn{
+        width: 49%;
+        background: #FFFFFF;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Arial-BoldMT', Arial, Helvetica, sans-serif;
+        font-size: rem(18px);
+color: #000000;
+letter-spacing: 0;
+text-align: center;
+font-weight: 700;
+padding:rem(21px);
+       
+@include phones{
+    width: 100%;
+}
+&:hover{
+    background: #FFD93E;
+}
+
+&:active{
+    background: #FF9E00;
+}
+
+
+    }
+    &-btn + &-btn{
+        margin-top: 10px;
+    }
+
+    &-temperature-carousel{
+        margin-bottom: rem(20px);
+    }
+    &-bright{
+        width: rem(24px);
+        height: rem(24px);
+        fill: none;
+    }
+}
+
+.slider-wrapper{
+    width: 100%;
+    position: relative;
+    &-floor{
+        display: flex;
+    justify-content: center;
+
+    @include phones{
+        flex-grow: 1;
+    align-items: center;
+    }
+    }
+}
+
+.slider-range{
+    position: absolute;
+    font-family: 'Arial-BoldMT', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    width: 100%;
+font-size: rem(18px);
+color: #FFFFFF;
+letter-spacing: 0;
+display: flex;
+justify-content: space-between;
+top: rem(19px);
+padding: 0 20px;
+
+&-floor{
+    font-size: rem(66px);
+color: #333333;
+width: auto;
+    top: rem(60px);
+    left:rem(50px);
+
+    @include phones{
+        top: 50%;
+        transform: translate(0,-50%);
+    }
+}
+}
+
+/*---popup-temperature--- */
+
+#parent {
+    width: 200px;
+    height: 200px;
+    background: #FEFEFE;
+    box-shadow: 0 2px 4px 0 rgba(134,121,71,0.45);
+    border-radius: 50%;
+  position:relative;
+}
+
+.slider-lines{
+    background-image: url("../../images/Oval.png");
+    width: 220px;
+    height: 220px;
+    position: absolute;
+    top: -5%;
+    left: 31%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translate(0%,0%);
+
+    @include phones{
+
+    left: 50%;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    }
+}
+#child {
+	width: 30px;
+	height: 30px;
+	offset-path: path("M100,0 A100,100 0 1,1 100,200 A100,100 0 1,1 100,0");
+  offset-distance: 60%;
+  z-index:50;
+  position: relative;
+  &:after{
+    width: 0; height: 0;
+border-top: 5px solid transparent;
+border-right: 10px solid #000000;
+border-bottom: 5px solid transparent;
+    content:"";
+    position:absolute;
+    top:15px;
+    left:10px;
+    transform:rotate(90deg);
+    z-index:-1;
+    
+  }
 }
