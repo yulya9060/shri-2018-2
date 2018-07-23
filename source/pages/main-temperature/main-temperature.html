@@ -10,8 +10,8 @@
 
 <body>
     <div class="popap">
-        <div class="popap-container">
-            <div class="popap-main">
+        <div class="popap-container popap__temperature">
+            <div class="popap-main popap-main__temperature">
                 <div class="popap-header">
                     <div class="popap-title">Elgato Eve Degree Connected</div>
                     <div class="popap-degree">
@@ -33,30 +33,22 @@
                         <div class="gallery">
                             <ul class="gallery__nav popap-items">
                                 <li class="gallery__item favorite-devices__item popap-gallery-item">
-                                                <button class="favorite-devices__link favorite-devices__link_active favorite-devices__link_padding">Вручную</button>
+                                                <button class="favorite-devices__link favorite-devices__link_active favorite-devices__link_padding popap-gallery__btn">Вручную</button>
                                     </li>
                                     <li class="gallery__item favorite-devices__item popap-gallery-item ">
-                                            <button class="favorite-devices__link favorite-devices__link_padding">Холодно</button>
+                                            <button class="favorite-devices__link favorite-devices__link_padding popap-gallery__btn">Холодно</button>
                                 </li>
                                 <li class="gallery__item favorite-devices__item popap-gallery-item">
-                                        <button class="favorite-devices__link favorite-devices__link_padding">Тепло</button>
+                                        <button class="favorite-devices__link favorite-devices__link_padding popap-gallery__btn">Тепло</button>
                             </li>
                             <li class="gallery__item favorite-devices__item popap-gallery-item">
-                                    <button class="favorite-devices__link favorite-devices__link_padding">Жарко</button>
+                                    <button class="favorite-devices__link favorite-devices__link_padding popap-gallery__btn">Жарко</button>
                         </li>
                             </ul>
                         </div>
                     </div>
                 <div class="slider-wrapper">
                             <input class="slider slider-temperature" type="range" min="-10" max="+30" step="1" value="23" name="temperature" id="temperature">
-                <div class="slider-range">
-                    <div class="slider-range__min">
-                        -10
-                    </div>
-                    <div class="slider-range__max">
-                        +30
-                    </div>
-                </div>
                 </div>
                    
         

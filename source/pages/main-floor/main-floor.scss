@@ -627,7 +627,7 @@ body {
 
     &-container {
         display: flex;
-        width: rem(630px);
+        max-width: rem(630px);
         flex-direction: column;
     }
     &__floor{
@@ -647,10 +647,10 @@ body {
         width: 100%;
         position: relative;
         margin-bottom: rem(20px);
-
         @include phones{
             height: 492px;
         }
+       
     }
     &-title{
         font-family: 'Arial-BoldMT', Arial, Helvetica, sans-serif;
@@ -681,10 +681,8 @@ body {
     &-degree{
         display: flex;
         align-items: center;
-        &-floor{
-            @include phones{
-                display: none;
-            }
+        @include phones{
+            display: none;
         }
     }
 
@@ -722,30 +720,29 @@ body {
         justify-content: center;
         align-items: center;
         font-family: 'Arial-BoldMT', Arial, Helvetica, sans-serif;
-        font-size: rem(18px);
-color: #000000;
-letter-spacing: 0;
-text-align: center;
-font-weight: 700;
-padding:rem(21px);
-       
-@include phones{
-    width: 100%;
-}
-&:hover{
-    background: #FFD93E;
-}
+        font-size: 18px;
+        color: #000000;
+        letter-spacing: 0;
+        text-align: center;
+        font-weight: 700;
+        padding:rem(21px);
+            
+        @include phones{
+            width: 100%;
+        }
+        &:hover{
+            background: #FFD93E;
+        }
 
-&:active{
-    background: #FF9E00;
-}
-
-
+        &:active{
+            background: #FF9E00;
+        }
     }
+    @include phones{
     &-btn + &-btn{
         margin-top: 10px;
     }
-
+    }
     &-temperature-carousel{
         margin-bottom: rem(20px);
     }

@@ -10,10 +10,10 @@
 
 <body>
     <div class="popap">
-        <div class="popap-container">
-            <div class="popap-main">
+        <div class="popap-container popap__light">
+            <div class="popap-main popap-main__light">
                 <div class="popap-header">
-                    <div class="popap-title">Xiaomi Yeelight LED Smart Bulb</div>
+                    <div class="popap-title popap-title_smaller">Xiaomi Yeelight LED Smart Bulb</div>
                     <div class="popap-light">
                         <div class="popap-icon card__img_active">
                             <picture>
@@ -30,22 +30,22 @@
                     <div class="gallery">
                         <ul class="gallery__nav popap-items">
                             <li class="gallery__item favorite-devices__item popap-gallery-item">
-                                <button class="favorite-devices__link favorite-devices__link_active favorite-devices__link_padding">Вручную</button>
+                                <button class="favorite-devices__link favorite-devices__link_active favorite-devices__link_padding popap-gallery__btn">Вручную</button>
                             </li>
                             <li class="gallery__item favorite-devices__item popap-gallery-item ">
-                                <button class="favorite-devices__link favorite-devices__link_padding">Дневной свет</button>
+                                <button class="favorite-devices__link favorite-devices__link_padding popap-gallery__btn">Дневной свет</button>
                             </li>
                             <li class="gallery__item favorite-devices__item popap-gallery-item">
-                                <button class="favorite-devices__link favorite-devices__link_padding">Вечерний свет</button>
+                                <button class="favorite-devices__link favorite-devices__link_padding popap-gallery__btn">Вечерний свет</button>
                             </li>
                             <li class="gallery__item favorite-devices__item popap-gallery-item">
-                                <button class="favorite-devices__link favorite-devices__link_padding">Рассвет</button>
+                                <button class="favorite-devices__link favorite-devices__link_padding popap-gallery__btn">Рассвет</button>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="slider-wrapper">
-                    <input class="slider slider-temperature" type="range" min="-10" max="+30" step="1" value="23" name="temperature" id="temperature">
+                    <input class="slider slider-light" type="range" min="-10" max="+30" step="1" value="23" name="light" id="light">
                     <div class="slider-range">
                         <div class="popap-bright">
                                 <svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -62,7 +62,6 @@
                                         </g>
                                 </svg>
                         </div>
-                        <div class="slider-range__max">
                                 <div class="popap-bright">
                                         <svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         
@@ -80,7 +79,6 @@
                                                         
                                         </svg>
                                     </div>
-                        </div>
                     </div>
                 </div>
 
