@@ -68,7 +68,7 @@
 .header__container{
     justify-content: flex-start;
     padding: rem(32px) 0;
-
+    width: 100%;
     @include phones{
         justify-content: space-between;
         align-items: center;
@@ -80,6 +80,7 @@
     justify-content: space-between;
     padding: 25px 0;
     flex-wrap: wrap;
+    width: 100%;
     @include phones{
         justify-content: center;
         padding: rem(25px) rem(20px);

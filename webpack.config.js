@@ -34,17 +34,17 @@ const common = merge([
         }),
         new HtmlWebpackPlugin({
             filename: 'main-temperature.html',
-            chunks: ['main','main-temperature','common'],
+            chunks: ['main-temperature','common'],
             template: PATHS.source + '/pages/main-temperature/main-temperature.html'
         }),
         new HtmlWebpackPlugin({
             filename: 'main-light.html',
-            chunks: ['main','main-light','common'],
+            chunks: ['main-light','common'],
             template: PATHS.source + '/pages/main-light/main-light.html'
         }),
         new HtmlWebpackPlugin({
             filename: 'main-floor.html',
-            chunks: ['main','main-floor','common'],
+            chunks: ['main-floor','common'],
             template: PATHS.source + '/pages/main-floor/main-floor.html'
         }),
         new webpack.optimize.CommonsChunkPlugin({
