@@ -472,7 +472,10 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-
+    padding-left: rem(40px);
+    @include phones {
+        padding-left: 0;
+    }
     &__carousel{
         flex-grow: 1;
     }
