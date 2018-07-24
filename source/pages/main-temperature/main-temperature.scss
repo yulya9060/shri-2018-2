@@ -625,7 +625,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    opacity:0;
+    transition:all 1s ease; 
+    transform: translate(0,0);
     &-container {
         display: flex;
         max-width: rem(630px);
@@ -828,7 +830,7 @@ width: auto;
 }
 
 .popap-gallery__btn{
-    
+
     @include phones{
     border-radius: 20px;
 }

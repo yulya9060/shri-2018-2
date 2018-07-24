@@ -160,6 +160,7 @@
 .favorite-scenarios {
     width: 50%;
     margin-left: rem(13px);
+    
     @include phones {
         width: 100%;
         margin-left: 0;
@@ -467,8 +468,15 @@
 .favorite-devices {
     width: 100%;
     padding-left: rem(40px);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     @include phones {
         padding-left: 0;
+    }
+
+    &__carousel{
+        flex-grow: 1;
     }
 }
 
