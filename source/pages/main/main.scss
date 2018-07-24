@@ -188,9 +188,9 @@
 /* card */
 
 .card {
-    width: rem(200px);
-    height: rem(120px);
-    padding: rem(14px);
+    width: 200px;
+    height: 120px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -204,12 +204,12 @@
     }
     &__icon {
         flex-grow: 1;
-        margin-bottom: rem(10px);
+        margin-bottom: 10px;
     }
 
     &__img{
-        width: rem(24px);
-            height: rem(24px);
+        width: 24px;
+            height: 24px;
         display: none;
 
         &_active{
@@ -219,17 +219,17 @@
     &__title {
         font-family: 'Arial-BoldMT', Arial, Helvetica, sans-serif;
         font-weight: 700;
-        font-size: rem(14px);
+        font-size: 14px;
         color: #333333;
-        max-height: rem(64px);
+        max-height: 64px;
         width: 100%;
         overflow: hidden;
-        margin: 0 0 rem(3px);
+        margin: 0 0 3px;
     }
     &__sheduling {
         font-family: 'Arial-MT', Arial, Helvetica, sans-serif;
         font-weight: normal;
-        font-size: rem(12px);
+        font-size: 12px;
         color: #858585;
         letter-spacing: 0.01px;
         text-decoration: none;
@@ -450,8 +450,8 @@
     margin-right: rem(12px);
 }
 
-.scenario_heigth100 {
-    height: rem(100px);
+.card_heigth100 {
+    height: 100px;
 }
 
 .carousel-multi {
