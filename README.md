@@ -35,6 +35,6 @@
   
   Для просмотра готовой страницы необходимо перейти по следующей ссылке:
   
-  https://yulya9060.github.io/shri_2018_2/build/main.html
+  https://yulya9060.github.io/shri_2018_2/public/main.html
   
   
