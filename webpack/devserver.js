@@ -1,7 +1,7 @@
 module.exports = function() {
     return {
         devServer: {
-            contentBase: '/build',
+            contentBase: '/public',
             compress: true,
             stats: 'errors-only',
             port: 8081

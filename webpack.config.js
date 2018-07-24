@@ -11,7 +11,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const PATHS = {
     source: path.join(__dirname,'source'),
-    build: path.join(__dirname,'build')
+    public: path.join(__dirname,'public')
 };
 
 const common = merge([
@@ -20,7 +20,7 @@ const common = merge([
         'main': PATHS.source + '/pages/main/main.js',
     },
     output: {
-        path: PATHS.build,
+        path: PATHS.public,
         filename: './js/[name].js'
     },
     plugins: [
@@ -32,7 +32,7 @@ const common = merge([
         new webpack.optimize.CommonsChunkPlugin({
             name: "common"
         }),
-        new CleanWebpackPlugin(PATHS.build),
+        new CleanWebpackPlugin(PATHS.public),
         new OptimizeCssAssetsWebpackPlugin({
             cssProcessorOptions: { discardComments: { removeAll: true } },
         })
