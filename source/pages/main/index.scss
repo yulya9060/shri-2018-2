@@ -160,7 +160,6 @@
 .favorite-scenarios {
     width: 50%;
     margin-left: rem(13px);
-    
     @include phones {
         width: 100%;
         margin-left: 0;
@@ -173,7 +172,7 @@
     font-size: rem(18px);
     color: #333333;
     font-weight: 700;
-    @include phones{
+    @include phones {
         margin-bottom: 20px;
     }
 }
@@ -206,13 +205,11 @@
         flex-grow: 1;
         margin-bottom: 10px;
     }
-
-    &__img{
+    &__img {
         width: 24px;
-            height: 24px;
+        height: 24px;
         display: none;
-
-        &_active{
+        &_active {
             display: block;
         }
     }
@@ -242,14 +239,16 @@
 
 /* vertical carousel*/
 
-#carousel-main, #carousel-multi{
-    @include phones{
+#carousel-main,
+#carousel-multi {
+    @include phones {
         display: none;
     }
 }
 
-#carousel-main__mobile, #carousel-multi__mobile{
-    @include desctop{
+#carousel-main__mobile,
+#carousel-multi__mobile {
+    @include desctop {
         display: none;
     }
 }
@@ -274,28 +273,26 @@
     }
 }
 
-.arrow{
-    fill:rgba(152, 154, 156,.8);
-
-    &:hover{
-        fill:rgba(152, 154, 156,1);
+.arrow {
+    fill: rgba(152, 154, 156, .8);
+    &:hover {
+        fill: rgba(152, 154, 156, 1);
     }
-    &:active{
-        fill:rgba(51, 51, 51,1);
+    &:active {
+        fill: rgba(51, 51, 51, 1);
     }
 }
 
-.arrow-icon-prev{
+.arrow-icon-prev {
     width: 100%;
-    height: 100%;;
+    height: 100%;
+    ;
 }
 
 .btn__img {
     width: rem(16px);
     height: rem(16px);
     margin: rem(13px) 0;
-   
-
     &:hover {
         cursor: pointer;
     }
@@ -332,7 +329,6 @@
     list-style: none;
     transition: margin-left 250ms;
     font-size: 0;
-
     padding: 2px 2px 4px;
 }
 
@@ -421,12 +417,11 @@
     height: rem(14px);
 }
 
-.gallery-multi__img_next{
+.gallery-multi__img_next {
     transform: rotate(-90deg);
 }
 
-
-.gallery-multi__img_prev{
+.gallery-multi__img_prev {
     transform: rotate(90deg);
 }
 
@@ -476,7 +471,7 @@
     @include phones {
         padding-left: 0;
     }
-    &__carousel{
+    &__carousel {
         flex-grow: 1;
     }
 }
@@ -521,8 +516,7 @@
     &__title {
         position: relative;
     }
-
-    &__icon{
+    &__icon {
         width: 14px;
         height: 9px;
     }
@@ -545,7 +539,7 @@
     font-weight: 700;
     font-size: rem(13px);
     color: #000000;
-    background-color: rgba(247, 247, 247,1);
+    background-color: rgba(247, 247, 247, 1);
     border-radius: 20px;
     padding: rem(8px) rem(13px);
     position: relative;
@@ -553,17 +547,15 @@
         border-radius: 0;
         display: block;
         width: 100%;
-    text-align: end;
+        text-align: end;
     }
     &:hover {
         cursor: pointer;
         background-color: rgba(107, 107, 107, 0.2);
-
     }
     &:active {
         cursor: pointer;
-        background-color:  rgba(107, 107, 107, 0.8);
-
+        background-color: rgba(107, 107, 107, 0.8);
     }
     &_paddingRight {
         @include phones {
@@ -571,7 +563,7 @@
             border-radius: 20px;
         }
     }
-    &_active{
+    &_active {
         background-color: #FFD700;
     }
 }
@@ -626,7 +618,6 @@
 /*---popup-temperature--- */
 
 .popap {
-   
     overflow: hidden;
     background-color: rgba(51, 51, 51, 0.50);
     position: fixed;
@@ -637,113 +628,102 @@
     justify-content: center;
     width: 1px;
     height: 1px;
-    transition:all 1s;
-    transform: scale(1,1);
+    transition: all 1s;
+    transform: scale(1, 1);
     display: flex;
     &-container {
         display: flex;
         max-width: rem(630px);
         width: rem(630px);
         flex-direction: column;
-        @include phones{
+        @include phones {
             align-items: center;
             padding: 20px;
             width: 334px;
         }
     }
-    &__floor, &__light, &__temperature{
+    &__floor,
+    &__light,
+    &__temperature {
         display: flex;
         height: 100vh;
         width: 100vw;
     }
-
     &-main {
         background: #FFFFFF;
         border-radius: 20px;
         display: flex;
         flex-direction: column;
-        padding:rem(20px);
+        padding: rem(20px);
         width: 100%;
         position: relative;
         margin-bottom: rem(20px);
-        @include phones{
+        @include phones {
             height: 492px;
         }
-       
     }
-    &-title{
+    &-title {
         font-family: 'Arial-BoldMT', Arial, Helvetica, sans-serif;
-    font-size: rem(27px);
-    color: #333333;
-    font-weight: 700;
-
-    @include phones{
-        font-size: 18px;
+        font-size: rem(27px);
+        color: #333333;
+        font-weight: 700;
+        @include phones {
+            font-size: 18px;
+        }
+        &_smaller {
+            @include phones {
+                font-size: rem(18px);
+            }
+        }
     }
-    &_smaller{
-        @include phones{
-            font-size: rem(18px);
-        }     
-    }
-    }
-
-    &-temperature{
+    &-temperature {
         font-family: 'Arial-BoldMT', Arial, Helvetica, sans-serif;
-    font-size: rem(36px);
-    color: #333333;
-    font-weight: 700;
+        font-size: rem(36px);
+        color: #333333;
+        font-weight: 700;
     }
-
-    &-icon{
+    &-icon {
         width: rem(40px);
         height: rem(40px);
     }
-
-    &-header{
+    &-header {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        margin-bottom:42px;
-        @include phones{
+        margin-bottom: 42px;
+        @include phones {
             margin-bottom: 34px;
         }
     }
-
-    &-degree{
+    &-degree {
         display: flex;
         align-items: center;
-        @include phones{
+        @include phones {
             display: none;
         }
     }
-
-    &-gallery-item+&-gallery-item{
+    &-gallery-item+&-gallery-item {
         margin-left: rem(7px);
     }
-
-    &-items{
+    &-items {
         align-items: center;
     }
-
-    &-sheduling{
+    &-sheduling {
         position: absolute;
-        top:rem(60px);
-        content:'';
+        top: rem(60px);
+        content: '';
         display: flex;
         justify-content: flex-start;
     }
-
-    &-btns{
+    &-btns {
         display: flex;
         width: 100%;
         justify-content: space-between;
-
-        @include phones{
+        @include phones {
             flex-direction: column;
         }
     }
-
-    &-btn{
+    &-btn {
         width: 49%;
         background: #FFFFFF;
         border-radius: 20px;
@@ -756,109 +736,109 @@
         letter-spacing: 0;
         text-align: center;
         font-weight: 700;
-        padding:rem(21px);
-            
-        @include phones{
+        padding: rem(21px);
+        @include phones {
             width: 100%;
         }
-        &:hover{
+        &:hover {
             background: #FFD93E;
         }
-
-        &:active{
+        &:active {
             background: #FF9E00;
         }
     }
-    @include phones{
-    &-btn + &-btn{
-        margin-top: 10px;
+    @include phones {
+        &-btn+&-btn {
+            margin-top: 10px;
+        }
     }
-    }
-    &-temperature-carousel{
+    &-temperature-carousel {
         margin-bottom: rem(20px);
     }
-    &-bright{
+    &-bright {
         width: 24px;
         height: 24px;
         fill: none;
+        position: absolute;
+        &_min{
+            top: 50%;
+    left: 2%;
+    transform: translate(-1%,-50%);
+        }
+        &_max{  
+            top: 50%;
+            left: 98%;
+            transform: translate(-98%,-50%);
+        }
     }
-
-    &-light{
-        @include phones{
+    &-light {
+        @include phones {
             display: none;
         }
     }
 }
 
-.slider-wrapper{
+.slider-wrapper {
     position: relative;
     width: 100%;
     height: 100px;
-  &-floor{
+    &-floor {
         display: flex;
-    justify-content: center;
-    height: 245px;
-    @include phones{
-        align-items: center;
-        flex-grow: 1;
+        justify-content: center;
+        height: 245px;
+        @include phones {
+            align-items: center;
+            flex-grow: 1;
+        }
     }
-  }
-    @include phones{
+    @include phones {
         width: 100%;
         height: 264px;
     }
 }
 
-.slider-range{
+.slider-range {
     position: absolute;
     font-family: 'Arial-BoldMT', Arial, Helvetica, sans-serif;
     color: #FFFFFF;
     font-size: rem(18px);
     font-weight: 700;
     width: 100%;
-
-
-letter-spacing: 0;
-display: flex;
-justify-content: space-between;
-top: rem(19px);
-padding: 0 20px;
-
-@include phones{
-
-    flex-direction: column;
-    top: 0;
-    left:38%;
-    width: 60px;
-    height: 318px;
-    padding: 0 16px;
-}
-
-&__temperature{
-    @include phones{
-        top:10px;
+    letter-spacing: 0;
+    display: flex;
+    justify-content: space-between;
+    top: rem(19px);
+    padding: 0 20px;
+    @include phones {
+        flex-direction: column;
+        top: 0;
+        left: 38%;
+        width: 60px;
+        height: 318px;
+        padding: 0 16px;
+    }
+    &__temperature {
+        @include phones {
+            top: 10px;
+        }
+    }
+    &-floor {
+        font-size: rem(66px);
+        color: #333333;
+        width: auto;
+        top: rem(60px);
+        left: rem(50px);
+        @include phones {
+            top: 30%;
+            left: 22%;
+        }
     }
 }
 
-&-floor{
-    font-size: rem(66px);
-color: #333333;
-width: auto;
-    top: rem(60px);
-    left:rem(50px);
-
-    @include phones{
-        top: 30%;
-    left: 22%;
+.popap-gallery__btn {
+    @include phones {
+        border-radius: 20px;
     }
-}
-}
-
-.popap-gallery__btn{
-
-    @include phones{
-    border-radius: 20px;
-}
 }
 
 /*---popup-temperature--- */
@@ -867,12 +847,12 @@ width: auto;
     width: 200px;
     height: 200px;
     background: #FEFEFE;
-    box-shadow: 0 2px 4px 0 rgba(134,121,71,0.45);
+    box-shadow: 0 2px 4px 0 rgba(134, 121, 71, 0.45);
     border-radius: 50%;
-  position:relative;
+    position: relative;
 }
 
-.slider-lines{
+.slider-lines {
     background-image: url("../../images/Oval.png");
     width: 220px;
     height: 220px;
@@ -881,216 +861,227 @@ width: auto;
     left: 31%;
     background-size: contain;
     background-repeat: no-repeat;
-    transform: translate(0%,0%);
-
-    @include phones{
-
-    left: 50%;
-    transform: translate(-50%,-50%);
-    top: 50%;
+    transform: translate(0%, 0%);
+    @include phones {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 50%;
     }
 }
+
 #child {
-	width: 30px;
-	height: 30px;
-	offset-path: path("M100,0 A100,100 0 1,1 100,200 A100,100 0 1,1 100,0");
-  offset-distance: 60%;
-  z-index:50;
-  position: relative;
-  &:after{
-    width: 0; height: 0;
-border-top: 5px solid transparent;
-border-right: 10px solid #000000;
-border-bottom: 5px solid transparent;
-    content:"";
-    position:absolute;
-    top:15px;
-    left:10px;
-    transform:rotate(90deg);
-    z-index:-1;
-    
-  }
+    width: 30px;
+    height: 30px;
+    offset-path: path("M100,0 A100,100 0 1,1 100,200 A100,100 0 1,1 100,0");
+    offset-distance: 60%;
+    z-index: 50;
+    position: relative;
+    &:after {
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-right: 10px solid #000000;
+        border-bottom: 5px solid transparent;
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        transform: rotate(90deg);
+        z-index: -1;
+    }
 }
 
-.svg{
+.svg {
     width: 100%;
     height: 100%;
 }
-input#temperature[type="range"]{
+
+input#temperature[type="range"] {
     -webkit-appearance: none;
     width: rem(580px);
     height: 60px;
     font-family: 'Arial-BoldMT', Arial, Helvetica, sans-serif;
-    font-size:18px;
+    font-size: 18px;
     color: #FFFFFF;
     font-weight: 700;
     position: relative;
-
-    @include phones{
-        -webkit-transform:rotate(90deg);
-        -moz-transform:rotate(90deg); 
-        -o-transform:rotate(90deg); 
-        -ms-transform:rotate(90deg); 
+    background: transparent;
+    @include phones {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
         transform: rotate(90deg);
         width: 340px;
         height: 60px;
         position: absolute;
-    top: 50%;
-    left: -44px;
+        top: 50%;
+        left: -44px;
     }
-
     &::-webkit-slider-runnable-track {
-        background-image: linear-gradient(85deg, #068FFF 2%, #FFD800 51%, #F76B1C 100%);
+        background: transparent;
         border-radius: 30px;
         width: 340px;
         height: 60px;
-      }  
-      &::-webkit-slider-thumb{
+    }
+    &::-webkit-slider-thumb {
         -webkit-appearance: none;
-        width:60px;
-           height:60px;
-           border-radius:35px;
-           border: 4px solid #ffffff;
-           cursor:pointer;
+        width: 60px;
+        height: 60px;
+        border-radius: 35px;
+        border: 4px solid #ffffff;
+        cursor: pointer;
     }
     &::-moz-range-track {
-        background-image: linear-gradient(85deg, #068FFF 2%, #FFD800 51%, #F76B1C 100%);
+        background: transparent;
         border-radius: 30px;
         width: rem(580px);
         height: 60px;
-
-        @include phones{
+        @include phones {
             width: 340px;
             height: 60px;
         }
-        
-        
     }
-                &::-moz-range-thumb {
-                -moz-apperance:none;
+    &::-moz-range-thumb {
+        -moz-apperance: none;
         appearance: none;
-        width:60px;
-           height:60px;
-           border-radius:35px;
-           border: 4px solid #ffffff;
-           background: transparent;
-           cursor:pointer;
-                }
-        
+        width: 60px;
+        height: 60px;
+        border-radius: 35px;
+        border: 4px solid #ffffff;
+        background: transparent;
+        cursor: pointer;
+    }
     &::-ms-track {
-        background-image: linear-gradient(85deg, #068FFF 2%, #FFD800 51%, #F76B1C 100%);
+        background: transparent;
         border-radius: 30px;
         width: 340px;
         height: 60px;
     }
-    &::-ms-thumb{
+    &::-ms-thumb {
         appearance: none;
-        width:60px;
-           height:60px;
-           border-radius:35px;
-           border: 4px solid #ffffff;
-           cursor:pointer;
-    }
-                &:before{
-                    position: absolute;
-                    content: '-10';
-                    top: 40%;
-                    left: 2%;
-                    transform: translate(-2%,-40%);
-                
-                    @include phones{
-                        transform: rotate(-90deg);
-                    }
-                }
+        width: 60px;
+        height: 60px;
+        border-radius: 35px;
+        border: 4px solid #ffffff;
+        cursor: pointer;
+    } 
 
-                &:after{
-                position: absolute;
-                content: '+30';
-                top: 40%;
-    right: 3%;
-    transform: translate(-3%,-40%);
-               
-                @include phones{
-                    transform: rotate(-90deg);
-                }
-                }
-    }
+}
 
-
-input#light[type="range"]{
+input#light[type="range"] {
     -webkit-appearance: none;
     width: rem(580px);
     height: 60px;
-    @include phones{
-        -webkit-transform:rotate(90deg);
-        -moz-transform:rotate(90deg); 
-        -o-transform:rotate(90deg); 
-        -ms-transform:rotate(90deg); 
+    background: transparent;
+    position: relative;
+    @include phones {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
         transform: rotate(90deg);
         width: 340px;
         height: 60px;
         position: absolute;
-    top: 50%;
-    left: -44px;
+        top: 50%;
+        left: -44px;
     }
-
     &::-webkit-slider-runnable-track {
-
-        background-image: linear-gradient(-85deg,#FF9E00  2%,  #FFE682 98%);
+        background: transparent;
         border-radius: 30px;
         width: 340px;
         height: 60px;
-      }  
-
-    &::-webkit-slider-thumb{
-        -webkit-appearance: none;
-        width:60px;
-           height:60px;
-           border-radius:35px;
-           border: 4px solid #ffffff;
-           cursor:pointer;
     }
-     
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 60px;
+        height: 60px;
+        border-radius: 35px;
+        border: 4px solid #ffffff;
+        cursor: pointer;
+    }
     &::-moz-range-track {
-        background-image: linear-gradient(-85deg,#FF9E00  2%,  #FFE682 98%);
+        background: transparent;
         border-radius: 30px;
         width: rem(580px);
         height: 60px;
-
-        @include phones{
+        @include phones {
             width: 340px;
             height: 60px;
         }
-        
     }
-                &::-moz-range-thumb {
-                -moz-apperance:none;
+    &::-moz-range-thumb {
+        -moz-apperance: none;
         appearance: none;
-        width:60px;
-           height:60px;
-           border-radius:35px;
-           border: 4px solid #ffffff;
-           background: transparent;
-           cursor:pointer;
-                }
-        
+        width: 60px;
+        height: 60px;
+        border-radius: 35px;
+        border: 4px solid #ffffff;
+        background: transparent;
+        cursor: pointer;
+    }
     &::-ms-track {
-        background-image: linear-gradient(-85deg,#FF9E00  2%,  #FFE682 98%);
+        background: transparent;
         border-radius: 30px;
         width: 340px;
         height: 60px;
     }
-    &::-ms-thumb{
+    &::-ms-thumb {
         appearance: none;
-        width:60px;
-           height:60px;
-           border-radius:35px;
-           border: 4px solid #ffffff;
-           cursor:pointer;
+        width: 60px;
+        height: 60px;
+        border-radius: 35px;
+        border: 4px solid #ffffff;
+        cursor: pointer;
     }
+}
 
-   
-       
+.slider-icon {
+
+    width: 36rem;
+    height: 60px;
+    position: absolute;
+    border-radius: 30px;
+    
+    @include phones {
+        transform: rotate(-90deg);
+        top: 50%;
+        left: -17%;
+        width: 341px;
+        height: 60px;
     }
+    &__light{
+        background-image: linear-gradient(-85deg, #FF9E00 2%, #FFE682 98%);
+    }
+    &__temperature{
+        font-family: 'Arial-BoldMT', Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        color: #FFFFFF;
+        font-weight: 700;
+        background-image: linear-gradient(85deg, #068FFF 2%, #FFD800 51%, #F76B1C 100%);
+        &:before {
+            position: absolute;
+            content: '-10';
+            top: 40%;
+            left: 2%;
+            transform: translate(-2%, -40%);
+            @include phones {
+                transform: rotate(90deg);
+            }
+        }
+        &:after {
+            position: absolute;
+            content: '+30';
+            top: 40%;
+            right: 3%;
+            transform: translate(-3%, -40%);
+            @include phones {
+                transform: rotate(90deg);
+            }
+        }
+    }
+   
+}
 
 /*---popup-temperature--- */
