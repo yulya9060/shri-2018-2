@@ -22,6 +22,7 @@ const btnCancels=document.querySelectorAll('.popap-btn-cancel');
     Array.prototype.filter.call(btnCancels, function (btn) {
         btn.addEventListener('click', function () {
             let parent=this.parentNode.parentNode.parentNode;
+            document.body.style.overflow='auto';
             if (this.closest('.popap__temperature')){
                 parent.classList.remove('popap__temperature');
             }
@@ -36,18 +37,21 @@ const btnCancels=document.querySelectorAll('.popap-btn-cancel');
     Array.prototype.filter.call(cardTemperatures, function (cardTemperature) {
         cardTemperature.addEventListener('click', function () {
             document.getElementById('popap-temperature').classList.add('popap__temperature');
+            document.body.style.overflow='hidden';
       });
     });
 
     Array.prototype.filter.call(cardLights, function (cardLight) {
         cardLight.addEventListener('click', function () {
             document.getElementById('popap-light').classList.add('popap__light');
+            document.body.style.overflow='hidden';
       });
     });
 
     Array.prototype.filter.call(cardFloors, function (cardFloor) {
         cardFloor.addEventListener('click', function () {
             document.getElementById('popap-floor').classList.add('popap__floor');
+            document.body.style.overflow='hidden';
       });
     });
 
