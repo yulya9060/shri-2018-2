@@ -797,6 +797,11 @@
   &-floor{
         display: flex;
     justify-content: center;
+    height: 245px;
+    @include phones{
+        align-items: center;
+        flex-grow: 1;
+    }
   }
     @include phones{
         width: 100%;
@@ -843,8 +848,8 @@ width: auto;
     left:rem(50px);
 
     @include phones{
-        top: 50%;
-        transform: translate(0,-50%);
+        top: 30%;
+    left: 22%;
     }
 }
 }
