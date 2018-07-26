@@ -6,8 +6,7 @@ webpackJsonp([0],[
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_scss__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__index_scss__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fonts_fonts_scss__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fonts_fonts_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__fonts_fonts_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fonts_fonts__ = __webpack_require__(2);
 
 
 
@@ -22,7 +21,8 @@ const btnCancels=document.querySelectorAll('.popap-btn-cancel');
     Array.prototype.filter.call(btnCancels, function (btn) {
         btn.addEventListener('click', function () {
             let parent=this.parentNode.parentNode.parentNode;
-            document.body.style.overflow='auto';
+            document.querySelector('.wrapper').classList.remove('wrapper_blur');
+            document.body.removeAttribute('style');
             if (this.closest('.popap__temperature')){
                 parent.classList.remove('popap__temperature');
             }
@@ -36,6 +36,7 @@ const btnCancels=document.querySelectorAll('.popap-btn-cancel');
     });
     Array.prototype.filter.call(cardTemperatures, function (cardTemperature) {
         cardTemperature.addEventListener('click', function () {
+            document.querySelector('.wrapper').classList.add('wrapper_blur');
             document.getElementById('popap-temperature').classList.add('popap__temperature');
             document.body.style.overflow='hidden';
       });
@@ -43,6 +44,7 @@ const btnCancels=document.querySelectorAll('.popap-btn-cancel');
 
     Array.prototype.filter.call(cardLights, function (cardLight) {
         cardLight.addEventListener('click', function () {
+            document.querySelector('.wrapper').classList.add('wrapper_blur');
             document.getElementById('popap-light').classList.add('popap__light');
             document.body.style.overflow='hidden';
       });
@@ -50,6 +52,7 @@ const btnCancels=document.querySelectorAll('.popap-btn-cancel');
 
     Array.prototype.filter.call(cardFloors, function (cardFloor) {
         cardFloor.addEventListener('click', function () {
+            document.querySelector('.wrapper').classList.add('wrapper_blur');
             document.getElementById('popap-floor').classList.add('popap__floor');
             document.body.style.overflow='hidden';
       });
@@ -90,6 +93,15 @@ const btnCancels=document.querySelectorAll('.popap-btn-cancel');
 
 /***/ }),
 /* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fonts_scss__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fonts_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fonts_scss__);
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
