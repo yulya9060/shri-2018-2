@@ -4,7 +4,7 @@ module.exports = function() {
             contentBase: '/public',
             compress: true,
             stats: 'errors-only',
-            port: 8081
+            port: 8082
             
            }
     };

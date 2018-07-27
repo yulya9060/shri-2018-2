@@ -1085,3 +1085,20 @@ input#light[type="range"] {
 }
 
 /*---popup-temperature--- */
+
+
+.btn-wrapper{
+    position: absolute;
+    top: 0;
+    display: flex;
+    left: 100%;
+    width: 47px;
+    justify-content: space-between;
+    transform: translate(-100%,0);
+
+    &__devices{
+        top: -18%;
+    left: 98%;
+    transform: translate(-98%,18%);
+    }
+}
