@@ -1,5 +1,5 @@
 import './index.scss';
-import '../../fonts/fonts.scss';
+import '../../fonts/fonts';
 
 
 
@@ -13,6 +13,8 @@ const btnCancels=document.querySelectorAll('.popap-btn-cancel');
         btn.addEventListener('click', function () {
             document.body.style.overflow='auto';
             let parent=this.parentNode.parentNode.parentNode;
+            document.querySelector('.wrapper').classList.remove('wrapper_blur');
+            document.body.removeAttribute('style');
             if (this.closest('.popap__temperature')){
                 parent.classList.remove('popap__temperature');
             }
@@ -27,6 +29,7 @@ const btnCancels=document.querySelectorAll('.popap-btn-cancel');
     Array.prototype.filter.call(cardTemperatures, function (cardTemperature) {
         cardTemperature.addEventListener('click', function () {
             document.body.style.overflow='hidden';
+            document.querySelector('.wrapper').classList.add('wrapper_blur');
             document.getElementById('popap-temperature').classList.add('popap__temperature');
       });
     });
@@ -34,6 +37,7 @@ const btnCancels=document.querySelectorAll('.popap-btn-cancel');
     Array.prototype.filter.call(cardLights, function (cardLight) {
         cardLight.addEventListener('click', function () {
             document.body.style.overflow='hidden';
+            document.querySelector('.wrapper').classList.add('wrapper_blur');
             document.getElementById('popap-light').classList.add('popap__light');
       });
     });
@@ -41,6 +45,7 @@ const btnCancels=document.querySelectorAll('.popap-btn-cancel');
     Array.prototype.filter.call(cardFloors, function (cardFloor) {
         cardFloor.addEventListener('click', function () {
             document.body.style.overflow='hidden';
+            document.querySelector('.wrapper').classList.add('wrapper_blur');
             document.getElementById('popap-floor').classList.add('popap__floor');
       });
     });
