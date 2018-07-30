@@ -261,7 +261,7 @@
 }
 
 .carousel_vertical {
-    width: 200px;
+    width: 35%;
 }
 
 .btn {
@@ -301,7 +301,7 @@
 .down {
     bottom: 0;
     justify-content: center;
-    width: 100%;
+    width: 200px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     background: #F7F7F7;
@@ -357,7 +357,8 @@
 }
 
 .gallery__item_vertical {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     width: 100%;
 }
 
@@ -487,6 +488,7 @@
     margin-bottom: rem(25px);
     @include phones {
         justify-content: space-between;
+        padding: 0 20px;
     }
 }
 
@@ -510,7 +512,7 @@
         width: 10px;
         height: 7px;
         top: 5px;
-        left: 36px;
+       right: 5px;
         z-index: 99;
     }
     &__title {
@@ -576,9 +578,12 @@
     position: absolute;
     z-index: 9999;
     top: 28px;
-    left: -8px;
+    right: 0;
     flex-direction: column;
     display: none;
+    &_active{
+        display: flex;
+    }
 }
 
 /* ---- end favorite-devices ---- */
@@ -1100,5 +1105,9 @@ input#light[type="range"] {
         top: -18%;
     left: 98%;
     transform: translate(-98%,18%);
+    }
+
+    @include phones{
+        display: none;
     }
 }
