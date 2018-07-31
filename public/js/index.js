@@ -25,7 +25,60 @@ const yellowLinks=document.querySelectorAll('.favorite-devices__link');
 const menuDropdownLinks=document.querySelectorAll('.menu-dropdown__item');
 const selectMenuDropDown=favoriteDevices.querySelector('.menu-dropdown__active');
 const favoriteDevicesCard=Array.from(favoriteDevices.querySelectorAll('.card[data-card]'));
-console.log('favoriteDevicesCard',favoriteDevicesCard);
+//карусели
+//карусель на Главной
+const mainCarousel=document.getElementById('mainCarousel');
+const mainBtn=document.getElementById('mainBtn');
+const mainTrack=document.getElementById('mainTrack');
+let lists= mainTrack.querySelectorAll('.gallery__item_vertical');
+let imgHeight=136;
+let side = (lists.length-2) * imgHeight;
+let TopArr=0;
+
+mainBtn.addEventListener('click',function(){
+  let topA=TopArr-imgHeight;
+  if (topA>=-side){
+    TopArr-=imgHeight*2;
+ }
+ else{
+  TopArr=0;
+ }
+  mainTrack.style.top=TopArr+'px';
+})
+
+//карусель избранных устройств
+const favoriteDevicesCarousel=document.getElementById('favoriteDevicesCarousel');
+const favoriteDevicesPrev=document.getElementById('favoriteDevicesPrev');
+const favoriteDevicesNext=document.getElementById('favoriteDevicesNext');
+const favoriteDevicesTrack=document.getElementById('favoriteDevicesCarouselTrack');
+let favoriteDeviceslists= favoriteDevicesTrack.querySelectorAll('.gallery__item_favorite-devices');
+let leftArr=0;
+let imgWidth=214;
+let screenWidth=document.documentElement.clientWidth;
+let favoriteDevicesSide = (favoriteDeviceslists.length-Math.floor(screenWidth/imgWidth)) * imgWidth;
+console.log('screenWidth', screenWidth/imgWidth);
+favoriteDevicesNext.addEventListener('click',function(){
+  let leftA=leftArr-imgWidth;
+  console.log('leftA',leftA,'leftArr',leftArr);
+  if (leftA>=-favoriteDevicesSide){
+    leftArr-=imgWidth*(screenWidth/imgWidth);
+ }
+ else{
+   leftArr=0;
+ }
+ favoriteDevicesTrack.style.left=leftArr+'px';
+})
+
+favoriteDevicesPrev.addEventListener('click',function(){
+  leftArr+=imgWidth*(screenWidth/imgWidth);
+    if (leftArr>0){
+      leftArr=0;
+    }
+    favoriteDevicesTrack.style.left=leftArr+'px';
+   
+  
+  })
+
 //скрытие показ выбранного пункта меню
 Array.prototype.filter.call(menuDropdownLinks,function(link){
    link.addEventListener('click', function () {
@@ -52,11 +105,9 @@ Array.prototype.filter.call(yellowLinks,function(link,index){
 
 //сортировка избранных устройств
 let sortLinks=(dataType)=>{
-  console.log('dataType',dataType);
 
   favoriteDevicesCard.map(el=>{
     el.parentElement.style.display='flex';
-    console.log('card-type',el)
     if (dataType==='all'|| dataType===undefined){
       el.parentElement.style.display='flex';
     }
@@ -147,29 +198,26 @@ hambMenu.addEventListener('click', function () {
       })
 
 
-//карусель избранных устройств
+// let width=200;
+// let count=5;
+// let carousel = document.getElementById('favoriteDevicesCarousel');
+// let list = carousel.querySelector('.gallery__nav');
+// let listElems = carousel.querySelectorAll('.gallery__item');
+// let position = 0; // текущий сдвиг влево
 
-let width=200;
-let count=5;
-let carousel = document.getElementById('favorite-devices');
-let list = carousel.querySelector('.gallery__nav');
-let listElems = carousel.querySelectorAll('.gallery__item');
-let position = 0; // текущий сдвиг влево
+//     carousel.querySelector('.gallery-horizontal__prev').onclick = function() {
+//       // сдвиг влево
+//       // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
+//       position = Math.min(position + width * count, 0)
+//       list.style.marginLeft = position + 'px';
+//     };
 
-    carousel.querySelector('.gallery-horizontal__prev').onclick = function() {
-      // сдвиг влево
-      // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
-      position = Math.min(position + width * count, 0)
-      list.style.marginLeft = position + 'px';
-    };
-
-    carousel.querySelector('.gallery-horizontal__next').onclick = function() {
-      // сдвиг вправо
-      // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
-      position = Math.max(position - width * count, -width * (listElems.length - count));
-      list.style.marginLeft = position + 'px';
-    };
-console.log(count);
+//     carousel.querySelector('.gallery-horizontal__next').onclick = function() {
+//       // сдвиг вправо
+//       // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
+//       position = Math.max(position - width * count, -width * (listElems.length - count));
+//       list.style.marginLeft = position + 'px';
+//     };
 
 
 /***/ }),

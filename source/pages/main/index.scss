@@ -239,14 +239,14 @@
 
 /* vertical carousel*/
 
-#carousel-main,
+#mainCarousel,
 #carousel-multi {
     @include phones {
         display: none;
     }
 }
 
-#carousel-main__mobile,
+#mainCarousel__mobile,
 #carousel-multi__mobile {
     @include desctop {
         display: none;
@@ -310,50 +310,42 @@
     }
 }
 
-.gallery_vertical {
-    height: rem(260px);
-}
+
 
 .gallery {
     overflow: hidden;
     width: 100%;
 }
 
+.gallery_vertical {
+    height: rem(260px);
+}
+
 .gallery__nav {
-    height: 100%;
-    width: rem(9999px);
+    height: auto;
+    width: auto;
     margin: 0;
     padding: 0;
+    position: relative;
+    left: 0;
+    transition:all ease 1s;
     display: flex;
-    flex-wrap: wrap;
     list-style: none;
-    transition: margin-left 250ms;
     font-size: 0;
     padding: 2px 2px 4px;
 }
 
 .gallery__nav_vertical {
-    height: rem(9999px);
-    width: 100%;
+    height: auto;
+    width: auto;
     flex-direction: column;
-    transition: margin-top 250ms;
+    position: relative;
+    top: 0;
 }
 
-.gallery__nav3 {
-    height: rem(9999px);
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    list-style: none;
-    transition: margin-top 250ms;
-    font-size: 0;
-}
 
 .gallery__item {
-    display: inline-block;
+    display: block;
 }
 
 .gallery__item_vertical {
@@ -1102,9 +1094,9 @@ input#light[type="range"] {
     transform: translate(-100%,0);
 
     &__devices{
-        top: -18%;
-    left: 98%;
-    transform: translate(-98%,18%);
+        top: -45%;
+        left: 98%;
+        transform: translate(-98%, 45%);
     }
 
     @include phones{
