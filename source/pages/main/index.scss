@@ -28,6 +28,10 @@
         opacity: 1;
         font-weight: 700;
     }
+
+    &_active{
+        opacity: 1;
+    }
 }
 
 .header__item+.header__item {
@@ -35,11 +39,14 @@
 }
 
 .header-nav-hamburger_active {
-    position: absolute;
-    display: flex;
-    top: 50px;
-    width: 100%;
-    justify-content: center;
+    @include phones{
+        position: absolute;
+        display: flex;
+        top: 50px;
+        width: 100%;
+        justify-content: center;
+    }
+ 
 }
 
 /* content  */
@@ -251,6 +258,11 @@
 
 .carousel_vertical {
     width: 35%;
+
+    @include phones{
+        width: 100%;
+        justify-content: flex-start;
+    }
 }
 
 .btn {
@@ -308,6 +320,10 @@
 
 .gallery_vertical {
     height: rem(260px);
+    @include phones{
+        display: flex;
+        align-items: center;
+    }
 }
 
 .gallery__nav {
@@ -330,6 +346,10 @@
     flex-direction: column;
     position: relative;
     top: 0;
+
+    @include phones{
+        flex-direction: row;
+    }
 }
 
 
@@ -350,6 +370,11 @@
 .gallery__item_vertical+.gallery__item_vertical {
     margin-top: rem(16px);
     margin-left: 0;
+
+    @include phones{
+        margin-top: 0;
+        margin-left: rem(15px);
+    }
 }
 
 .gallery-horizontal__prev {
@@ -381,6 +406,7 @@
     transition: all ease 1s;
     @include phones {
         flex-direction: row;
+        flex-wrap: nowrap;
     }
 }
 
@@ -439,6 +465,7 @@
     width: 100%;
     @include phones {
         width: 100%;
+        height: auto;
     }
 }
 
@@ -820,10 +847,7 @@
         color:#333333;
         transform: translate(-35%,-50%);
         width: 112px;
-        @include phones {
-            top: 30%;
-            left: 22%;
-        }
+        height: 77px;
     }
 }
 
@@ -1083,23 +1107,4 @@ input#light[type="range"] {
     @include phones{
         display: none;
     }
-}
-
-.g-circles {
-    fill: none;
-    stroke-width: 20;
-}
-.sector {
-    stroke-dasharray: 722;
-    stroke-dashoffset: 600;
-    transition: all 1s;
-}
-.clear {
-    stroke-dasharray:1 5;
-    transition: all 1s;
-}
-
-.d{
- width: 200px;
- height: 200px;
 }

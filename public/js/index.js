@@ -13,7 +13,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //containers
 
 const favoriteDevices = document.querySelector('.favorite-devices');
-
 const cardTemperatures = document.querySelectorAll(".card-temperature");
 const cardLights = document.querySelectorAll(".card-light");
 const cardFloors = document.querySelectorAll(".card-floor");
@@ -30,11 +29,12 @@ const favoriteDevicesCard = Array.from(favoriteDevices.querySelectorAll('.card[d
 const mainCarousel = document.getElementById('mainCarousel');
 const mainBtn = document.getElementById('mainBtn');
 const mainTrack = document.getElementById('mainTrack');
+let mainTrackCoord = mainTrack.getBoundingClientRect();
 let lists = mainTrack.querySelectorAll('.gallery__item_vertical');
 let imgHeight = 136;
 let side = (lists.length - 2) * imgHeight;
 let TopArr = 0;
-
+console.log('mainTrackCoord', mainTrackCoord);
 mainBtn.addEventListener('click', function () {
   let topA = TopArr - imgHeight;
   if (topA >= -side) {
@@ -76,6 +76,42 @@ favoriteDevicesPrev.addEventListener('click', function () {
   favoriteDevicesTrack.style.left = leftArr + 'px';
 })
 
+
+
+
+// /*Ловим отпускание пальца*/
+// document.addEventListener('touchend', function (event) {
+//   var pdelay = new Date();
+//   nowPoint = event.changedTouches[0];
+//   var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
+//   var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
+//   if ((xAbs > 20 || yAbs > 20) && (pdelay.getTime() - ldelay.getTime()) < 200) {
+//     if (xAbs > yAbs) {
+//       if (nowPoint.pageX < startPoint.x) { 
+//         console.log('swipe влево при отпускании') 
+//       };
+//     }
+// else { console.log('swipe вправо при отпускании') };
+
+//   }
+// }, false);
+
+//функция листания карусели вперед
+const swipeCarouselNext = (listTrack, listItems) => {
+  let track = listTrack;
+  let list = listItems;
+  let side = (list.length - Math.floor(screenWidth / imgWidth)) * imgWidth;
+  let leftA = leftArr - imgWidth;
+  if (leftA >= -side) {
+    leftArr -= imgWidth * (screenWidth / imgWidth);
+  }
+  else {
+    leftArr = 0;
+  }
+  listTrack.style.left = leftArr + 'px';
+}
+
+
 //карусель избранных сценариев
 const favoriteScenariosPrev = document.getElementById('favoriteScenariosPrev');
 const favoriteScenariosNext = document.getElementById('favoriteScenariosNext');
@@ -83,7 +119,7 @@ const favoriteScenariosTrack = document.getElementById('favoriteScenariosTrack')
 let favoriteScenariosLists = favoriteScenariosTrack.querySelectorAll('.gallery-multi__item');
 let favoriteScenariosleftArr = 0;
 let favoriteScenariosImgWidth = 200;
-let favoriteScenariosSide = ( Math.ceil(favoriteScenariosLists.length/3)-3) * favoriteScenariosImgWidth;
+let favoriteScenariosSide = (Math.ceil(favoriteScenariosLists.length / 3) - 3) * favoriteScenariosImgWidth;
 favoriteScenariosNext.addEventListener('click', function () {
   let leftA = favoriteScenariosleftArr - favoriteScenariosImgWidth;
   if (leftA >= -favoriteScenariosSide) {
@@ -96,12 +132,65 @@ favoriteScenariosNext.addEventListener('click', function () {
 })
 
 favoriteScenariosPrev.addEventListener('click', function () {
-  favoriteScenariosleftArr += favoriteScenariosImgWidth*3;
+  favoriteScenariosleftArr += favoriteScenariosImgWidth * 3;
   if (favoriteScenariosleftArr > 0) {
     favoriteScenariosleftArr = 0;
   }
   favoriteScenariosTrack.style.left = favoriteScenariosleftArr + 'px';
 })
+
+
+//swipe каруселей на десктопе
+var startPoint = {};
+var nowPoint;
+var ldelay;
+document.addEventListener('touchstart', function (event) {
+  event.preventDefault();
+  event.stopPropagation();
+  startPoint.x = event.changedTouches[0].pageX;
+  startPoint.y = event.changedTouches[0].pageY;
+  ldelay = new Date();
+}, false);
+/*Ловим движение пальцем*/
+document.addEventListener('touchmove', function (event) {
+  event.preventDefault();
+  event.stopPropagation();
+  var otk = {};
+  nowPoint = event.changedTouches[0];
+  otk.x = nowPoint.pageX - startPoint.x;
+  otk.y = nowPoint.pageY - startPoint.y;
+  /*Обработайте данные*/
+  /*Для примера*/
+
+  if (startPoint.x >= mainTrackCoord.left && startPoint.x <= mainTrackCoord.right && startPoint.y >= mainTrackCoord.top && startPoint.y <= mainTrackCoord.bottom) {
+   //вправо
+    startPoint = { x: nowPoint.pageX, y: nowPoint.pageY };
+  }
+  // if (Math.abs(otk.x) > 200) {
+  //   if (otk.x < 0) { console.log('swipe влево') }
+  //   if (otk.x > 0) { console.log('swipe вправо') }
+  //   startPoint = { x: nowPoint.pageX, y: nowPoint.pageY };
+  // }
+}, false);
+
+/*Ловим отпускание пальца*/
+document.addEventListener('touchend', function (event) {
+  var pdelay = new Date();
+  nowPoint = event.changedTouches[0];
+  var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
+  var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
+  if (startPoint.x >= mainTrackCoord.left && startPoint.x <= mainTrackCoord.right && startPoint.y >= mainTrackCoord.top && startPoint.y <= mainTrackCoord.bottom) {
+
+    if (nowPoint.pageX < startPoint.x) {
+      console.log('свайп влево')
+    }
+    else {
+   
+      swipeCarouselNext(mainTrack, lists)
+    }
+  }
+   }, false);
+
 
 //скрытие показ выбранного пункта меню
 Array.prototype.filter.call(menuDropdownLinks, function (link) {
@@ -173,7 +262,7 @@ Array.prototype.filter.call(btnCancels, function (btn) {
   });
 });
 
-let popapTemperature= document.getElementById('popap-temperature');
+let popapTemperature = document.getElementById('popap-temperature');
 //всплывающее окно с температурой  
 Array.prototype.filter.call(cardTemperatures, function (cardTemperature) {
   cardTemperature.addEventListener('click', function () {
@@ -223,26 +312,6 @@ floorSlider.addEventListener('click', function (e) {
 })
 
 
-// let width=200;
-// let count=5;
-// let carousel = document.getElementById('favoriteDevicesCarousel');
-// let list = carousel.querySelector('.gallery__nav');
-// let listElems = carousel.querySelectorAll('.gallery__item');
-// let position = 0; // текущий сдвиг влево
-
-//     carousel.querySelector('.gallery-horizontal__prev').onclick = function() {
-//       // сдвиг влево
-//       // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
-//       position = Math.min(position + width * count, 0)
-//       list.style.marginLeft = position + 'px';
-//     };
-
-//     carousel.querySelector('.gallery-horizontal__next').onclick = function() {
-//       // сдвиг вправо
-//       // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
-//       position = Math.max(position - width * count, -width * (listElems.length - count));
-//       list.style.marginLeft = position + 'px';
-//     };
 
 
 /***/ }),
