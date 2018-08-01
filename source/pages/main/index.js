@@ -87,7 +87,7 @@ favoriteScenariosNext.addEventListener('click', function () {
 })
 
 favoriteScenariosPrev.addEventListener('click', function () {
-  favoriteScenariosleftArr += favoriteScenariosImgWidth;
+  favoriteScenariosleftArr += favoriteScenariosImgWidth*3;
   if (favoriteScenariosleftArr > 0) {
     favoriteScenariosleftArr = 0;
   }
