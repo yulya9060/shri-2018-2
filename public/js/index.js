@@ -1,5 +1,14 @@
-import './index.scss';
-import '../../fonts/fonts';
+webpackJsonp([0],[
+/* 0 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_scss__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__index_scss__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fonts_fonts__ = __webpack_require__(2);
+
+
 
 //containers
 
@@ -234,3 +243,28 @@ floorSlider.addEventListener('click', function (e) {
 //       position = Math.max(position - width * count, -width * (listElems.length - count));
 //       list.style.marginLeft = position + 'px';
 //     };
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fonts_scss__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fonts_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__fonts_scss__);
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ })
+],[0]);
