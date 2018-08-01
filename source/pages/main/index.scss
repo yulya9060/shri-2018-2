@@ -239,19 +239,8 @@
 
 /* vertical carousel*/
 
-#carousel-main,
-#carousel-multi {
-    @include phones {
-        display: none;
-    }
-}
 
-#carousel-main__mobile,
-#carousel-multi__mobile {
-    @include desctop {
-        display: none;
-    }
-}
+
 
 .carousel {
     position: relative;
@@ -310,50 +299,42 @@
     }
 }
 
-.gallery_vertical {
-    height: rem(260px);
-}
+
 
 .gallery {
     overflow: hidden;
     width: 100%;
 }
 
+.gallery_vertical {
+    height: rem(260px);
+}
+
 .gallery__nav {
-    height: 100%;
-    width: rem(9999px);
+    height: auto;
+    width: auto;
     margin: 0;
     padding: 0;
+    position: relative;
+    left: 0;
+    transition:all ease 1s;
     display: flex;
-    flex-wrap: wrap;
     list-style: none;
-    transition: margin-left 250ms;
     font-size: 0;
     padding: 2px 2px 4px;
 }
 
 .gallery__nav_vertical {
-    height: rem(9999px);
-    width: 100%;
+    height: auto;
+    width: auto;
     flex-direction: column;
-    transition: margin-top 250ms;
+    position: relative;
+    top: 0;
 }
 
-.gallery__nav3 {
-    height: rem(9999px);
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    list-style: none;
-    transition: margin-top 250ms;
-    font-size: 0;
-}
 
 .gallery__item {
-    display: inline-block;
+    display: block;
 }
 
 .gallery__item_vertical {
@@ -386,20 +367,20 @@
 /* ---- favorite-scenarios ---- */
 
 .gallery-multi {
-    @include phones {
-        width: 100%;
-        overflow: hidden;
-    }
+    overflow: hidden;
+    height: 100%;
 }
 
 .gallery-multi__nav {
     display: flex;
+    position: relative;
+    flex-direction: column;
     flex-wrap: wrap;
+    height: 100%;
+    left: 0;
+    transition: all ease 1s;
     @include phones {
         flex-direction: row;
-        height: 100%;
-        width: 624.938rem;
-        transition: margin-left 250ms;
     }
 }
 
@@ -428,8 +409,8 @@
 
 .gallery-multi__item {
     width: 32%;
-    height: 32%;
-    margin-bottom: rem(13px);
+    height: 30%;
+    margin: 5px;
     @include phones {
         width: auto;
         height: auto;
@@ -437,7 +418,7 @@
 }
 
 .gallery-multi__item+.gallery-multi__item {
-    margin-right: rem(12px);
+    margin-right: 12px;
 }
 
 .gallery-multi__item:nth-child(3n) {
@@ -454,6 +435,8 @@
 
 .carousel-multi {
     margin-top: rem(20px);
+    height: 333px;
+    width: 100%;
     @include phones {
         width: 100%;
     }
@@ -467,12 +450,14 @@
     width: 100%;
     flex-grow: 1;
     display: flex;
+    position: relative;
     flex-direction: column;
     padding-left: rem(40px);
     @include phones {
         padding-left: 0;
     }
     &__carousel {
+        position: unset;
         flex-grow: 1;
     }
 }
@@ -631,10 +616,11 @@
     display: none;
     align-items: center;
     justify-content: center;
-    width: 1px;
-    height: 1px;
-    transition: all 1s;
+    width: 200px;
+    height: 120px;
+    transition: all ease 1s;
     transform: scale(1, 1);
+    transform-origin: center center;
     display: flex;
     &-container {
         display: flex;
@@ -1102,9 +1088,9 @@ input#light[type="range"] {
     transform: translate(-100%,0);
 
     &__devices{
-        top: -18%;
-    left: 98%;
-    transform: translate(-98%,18%);
+        top: 5%;
+        left: 98%;
+        transform: translate(-98%, 5%);
     }
 
     @include phones{
