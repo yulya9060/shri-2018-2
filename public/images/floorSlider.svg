@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="220" height="220" fill="none" stroke-width="20"  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
-    <title>Oval Copy</title>
-    <desc>Created with Sketch.</desc>
-<circle r="100" cx="110" cy="110" stroke="orange"  stroke-dasharray='1 3'/>
-   <circle r="90" cx="110" cy="110" stroke="#D3D3D3" stroke-width="0.5" fill="white" />
- <circle r="100" cx="110" cy="110" stroke="white"  stroke-dasharray="722"
-     stroke-dashoffset="600" transform="rotate(58 110 110)"/>
-</svg>

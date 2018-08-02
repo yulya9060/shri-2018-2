@@ -1,8 +1,10 @@
 import './index.scss';
 import '../../fonts/fonts';
+import clippedText from '../../js/clippedText';
+clippedText();
 
+let screenWidth = document.documentElement.clientWidth;
 //containers
-
 const favoriteDevices = document.querySelector('.favorite-devices');
 const cardTemperatures = document.querySelectorAll(".card-temperature");
 const cardLights = document.querySelectorAll(".card-light");
@@ -22,165 +24,234 @@ const mainBtn = document.getElementById('mainBtn');
 const mainTrack = document.getElementById('mainTrack');
 let mainTrackCoord = mainTrack.getBoundingClientRect();
 let lists = mainTrack.querySelectorAll('.gallery__item_vertical');
+let imgWidth = 214;
 let imgHeight = 136;
-let side = (lists.length - 2) * imgHeight;
-let TopArr = 0;
-console.log('mainTrackCoord', mainTrackCoord);
-mainBtn.addEventListener('click', function () {
-  let topA = TopArr - imgHeight;
-  if (topA >= -side) {
-    TopArr -= imgHeight * 2;
-  }
-  else {
-    TopArr = 0;
-  }
-  mainTrack.style.top = TopArr + 'px';
-})
+let topArr = 0;
+let leftArr = 0;
 
 //карусель избранных устройств
 const favoriteDevicesCarousel = document.getElementById('favoriteDevicesCarousel');
 const favoriteDevicesPrev = document.getElementById('favoriteDevicesPrev');
 const favoriteDevicesNext = document.getElementById('favoriteDevicesNext');
 const favoriteDevicesTrack = document.getElementById('favoriteDevicesCarouselTrack');
-let favoriteDeviceslists = favoriteDevicesTrack.querySelectorAll('.gallery__item_favorite-devices');
-let leftArr = 0;
-let imgWidth = 214;
-let screenWidth = document.documentElement.clientWidth;
-let favoriteDevicesSide = (favoriteDeviceslists.length - Math.floor(screenWidth / imgWidth)) * imgWidth;
-console.log(favoriteDevicesCarousel);
-favoriteDevicesNext.addEventListener('click', function () {
-  let leftA = leftArr - imgWidth;
-  if (leftA >= -favoriteDevicesSide) {
-    leftArr -= imgWidth * (screenWidth / imgWidth);
-  }
-  else {
-    leftArr = 0;
-  }
-  favoriteDevicesTrack.style.left = leftArr + 'px';
-})
-
-favoriteDevicesPrev.addEventListener('click', function () {
-  leftArr += imgWidth * (screenWidth / imgWidth);
-  if (leftArr > 0) {
-    leftArr = 0;
-  }
-  favoriteDevicesTrack.style.left = leftArr + 'px';
-})
-
-
-
-
-// /*Ловим отпускание пальца*/
-// document.addEventListener('touchend', function (event) {
-//   var pdelay = new Date();
-//   nowPoint = event.changedTouches[0];
-//   var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
-//   var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
-//   if ((xAbs > 20 || yAbs > 20) && (pdelay.getTime() - ldelay.getTime()) < 200) {
-//     if (xAbs > yAbs) {
-//       if (nowPoint.pageX < startPoint.x) { 
-//         console.log('swipe влево при отпускании') 
-//       };
-//     }
-// else { console.log('swipe вправо при отпускании') };
-
-//   }
-// }, false);
-
-//функция листания карусели вперед
-const swipeCarouselNext = (listTrack, listItems) => {
-  let track = listTrack;
-  let list = listItems;
-  let side = (list.length - Math.floor(screenWidth / imgWidth)) * imgWidth;
-  let leftA = leftArr - imgWidth;
-  if (leftA >= -side) {
-    leftArr -= imgWidth * (screenWidth / imgWidth);
-  }
-  else {
-    leftArr = 0;
-  }
-  listTrack.style.left = leftArr + 'px';
-}
-
+let favoriteDevicesLists = favoriteDevicesTrack.querySelectorAll('.gallery__item_favorite-devices');
 
 //карусель избранных сценариев
+const favoriteScenariosCarousel = document.getElementById('favoriteScenariosCarousel');
 const favoriteScenariosPrev = document.getElementById('favoriteScenariosPrev');
 const favoriteScenariosNext = document.getElementById('favoriteScenariosNext');
 const favoriteScenariosTrack = document.getElementById('favoriteScenariosTrack');
 let favoriteScenariosLists = favoriteScenariosTrack.querySelectorAll('.gallery-multi__item');
-let favoriteScenariosleftArr = 0;
 let favoriteScenariosImgWidth = 200;
-let favoriteScenariosSide = (Math.ceil(favoriteScenariosLists.length / 3) - 3) * favoriteScenariosImgWidth;
-favoriteScenariosNext.addEventListener('click', function () {
-  let leftA = favoriteScenariosleftArr - favoriteScenariosImgWidth;
-  if (leftA >= -favoriteScenariosSide) {
-    favoriteScenariosleftArr -= favoriteScenariosImgWidth * 3;
-  }
-  else {
-    favoriteScenariosleftArr = 0;
-  }
-  favoriteScenariosTrack.style.left = favoriteScenariosleftArr + 'px';
-})
-
-favoriteScenariosPrev.addEventListener('click', function () {
-  favoriteScenariosleftArr += favoriteScenariosImgWidth * 3;
-  if (favoriteScenariosleftArr > 0) {
-    favoriteScenariosleftArr = 0;
-  }
-  favoriteScenariosTrack.style.left = favoriteScenariosleftArr + 'px';
-})
-
-
-//swipe каруселей на десктопе
 var startPoint = {};
 var nowPoint;
-var ldelay;
-document.addEventListener('touchstart', function (event) {
+let initialPoint;
+let finalPoint;
+
+//функция листания карусели вверх
+const swipeCarouselUp = (listTrack, listItems) => {
+  let track = listTrack;
+  let list = listItems;
+  let side = (list.length - 2) * imgHeight;
+  let topA = topArr - imgHeight;
+  mainBtn.style.opacity = 0;
+  if (topA >= -side) {
+    topArr -= imgHeight * 2;
+  }
+  else {
+    topArr = 0;
+    mainBtn.style.opacity = 1;
+  }
+  track.style.top = topArr + 'px';
+}
+
+const swipeCarouselDown = (listTrack, listItems) => {
+  let track = listTrack;
+  let list = listItems;
+  topArr += imgHeight * 2;
+  if (topArr > 0) {
+    topArr = 0;
+    mainBtn.style.opacity = 1;
+  }
+  track.style.top = topArr + 'px';
+}
+
+
+const swipeFavoriteScenCarouselNext = (listTrack, listItems) => {
+  let track = listTrack;
+  let list = listItems;
+  let side = (Math.ceil(list.length / 3) - 3) * favoriteScenariosImgWidth;
+  let leftA = leftArr - favoriteScenariosImgWidth;
+  if (leftA >= -side) {
+    leftArr -= track.parentElement.getBoundingClientRect().width;
+  }
+  else {
+    leftArr = 0;
+  }
+  track.style.left = leftArr + 'px';
+}
+
+const swipeFavoriteScenCarouselPrev = (listTrack, listItems) => {
+  let track = listTrack;
+  let list = listItems;
+  leftArr += track.parentElement.getBoundingClientRect().width;
+  if (leftArr > 0) {
+    leftArr = 0;
+  }
+  track.style.left = leftArr + 'px';
+}
+
+let position;
+//функция листания карусели вперед
+const swipeCarouselNext = (listTrack, listItems) => {
+  let track = listTrack;
+  let count = Math.floor(track.parentElement.getBoundingClientRect().width / imgWidth);
+  let list = listItems;
+  
+  //  position = Math.max(position - width * count, -width * (listElems.length - count));
+
+  
+  //берем ширину родительского элемента, чтобы прокручивать на всю длину
+  let side = (list.length - count) * imgWidth;
+  let leftA = leftArr - imgWidth;
+  if (leftA >= -side) {
+    leftArr = Math.max(leftArr - imgWidth * count, -imgWidth * (list.length - count));
+  }
+  else {
+    leftArr = 0;
+  }
+  console.log('side', side, 'getBoundingClientRect', track.parentElement.getBoundingClientRect().width,'leftArr',leftArr);
+  track.style.left = leftArr + 'px';
+}
+
+const swipeCarouselPrev = (listTrack, listItems) => {
+  let track = listTrack;
+  let list = listItems;
+  let count = Math.floor(track.parentElement.getBoundingClientRect().width / imgWidth);
+  leftArr=Math.min(leftArr + imgWidth * count, 0);
+  if (leftArr > 0) {
+    leftArr = 0;
+  }
+  track.style.left = leftArr + 'px';
+}
+
+const handleStart = (event) => {
   event.preventDefault();
   event.stopPropagation();
-  startPoint.x = event.changedTouches[0].pageX;
-  startPoint.y = event.changedTouches[0].pageY;
-  ldelay = new Date();
-}, false);
-/*Ловим движение пальцем*/
-document.addEventListener('touchmove', function (event) {
+  initialPoint = event.changedTouches[0];
+}
+
+const handleEndMain = (track, lists) => (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  finalPoint = event.changedTouches[0];
+  var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
+  var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
+  if (xAbs > 20 || yAbs > 20) {
+    if (screenWidth < 1280) {
+      if (xAbs > yAbs) {
+        if (finalPoint.pageX < initialPoint.pageX) {
+          swipeCarouselNext(track, lists)
+          console.log('свайп влево')
+        }
+        else {
+          swipeCarouselPrev(track, lists)
+          console.log('свайп вправо')
+        }
+      }
+
+    }
+    else {
+      if (xAbs < yAbs) {
+        if (finalPoint.pageY < initialPoint.pageY) {
+          swipeCarouselUp(track, lists)
+          console.log('свайп вверх')
+        }
+        else {
+          swipeCarouselDown(track, lists)
+          console.log('свайп вниз')
+        }
+      }
+    }
+  }
+};
+
+
+const handleEnd = (track, lists) => (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  finalPoint = event.changedTouches[0];
+  var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
+  var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
+  if (xAbs > 20 || yAbs > 20) {
+      if (xAbs > yAbs) {
+        if (finalPoint.pageX < initialPoint.pageX) {
+          swipeCarouselNext(track, lists)
+          console.log('свайп влево')
+        }
+        else {
+          swipeCarouselPrev(track, lists)
+          console.log('свайп вправо')
+        }
+      }
+
+    }
+};
+
+
+const handleEndScenarios = (track, lists) => (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  finalPoint = event.changedTouches[0];
+  var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
+  var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
+  if (xAbs > 20 || yAbs > 20) {
+    if (screenWidth < 1280) {
+      if (xAbs > yAbs) {
+        if (finalPoint.pageX < initialPoint.pageX) {
+          swipeCarouselNext(track, lists)
+          console.log('свайп влево')
+        }
+        else {
+          swipeCarouselPrev(track, lists)
+          console.log('свайп вправо')
+        }
+      }
+    }
+    else {
+      if (xAbs > yAbs) {
+        if (finalPoint.pageX < initialPoint.pageX) {
+          swipeFavoriteScenCarouselNext(track, lists)
+          console.log('свайп влево')
+        }
+        else {
+          swipeFavoriteScenCarouselPrev(track, lists)
+          console.log('свайп вправо')
+        }
+      }
+    }
+  }
+};
+
+const handleMove = (event) => {
   event.preventDefault();
   event.stopPropagation();
   var otk = {};
   nowPoint = event.changedTouches[0];
   otk.x = nowPoint.pageX - startPoint.x;
   otk.y = nowPoint.pageY - startPoint.y;
-  /*Обработайте данные*/
-  /*Для примера*/
 
-  if (startPoint.x >= mainTrackCoord.left && startPoint.x <= mainTrackCoord.right && startPoint.y >= mainTrackCoord.top && startPoint.y <= mainTrackCoord.bottom) {
-   //вправо
-    startPoint = { x: nowPoint.pageX, y: nowPoint.pageY };
-  }
-  // if (Math.abs(otk.x) > 200) {
-  //   if (otk.x < 0) { console.log('swipe влево') }
-  //   if (otk.x > 0) { console.log('swipe вправо') }
-  //   startPoint = { x: nowPoint.pageX, y: nowPoint.pageY };
-  // }
-}, false);
+  startPoint = { x: nowPoint.pageX, y: nowPoint.pageY };
+}
 
-/*Ловим отпускание пальца*/
-document.addEventListener('touchend', function (event) {
-  var pdelay = new Date();
-  nowPoint = event.changedTouches[0];
-  var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
-  var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
-  if (startPoint.x >= mainTrackCoord.left && startPoint.x <= mainTrackCoord.right && startPoint.y >= mainTrackCoord.top && startPoint.y <= mainTrackCoord.bottom) {
+mainCarousel.addEventListener("touchstart", handleStart, { passive: false });
+mainCarousel.addEventListener("touchend", handleEndMain(mainTrack, lists), { passive: false });
+favoriteDevicesCarousel.addEventListener("touchstart", handleStart, { passive: false });
+favoriteDevicesCarousel.addEventListener("touchend", handleEnd(favoriteDevicesTrack, favoriteDevicesLists), { passive: false });
+favoriteScenariosCarousel.addEventListener("touchstart", handleStart, { passive: false });
+favoriteScenariosCarousel.addEventListener("touchend", handleEndScenarios(favoriteScenariosTrack, favoriteScenariosLists), { passive: false });
 
-    if (nowPoint.pageX < startPoint.x) {
-      console.log('свайп влево')
-    }
-    else {
-   
-      swipeCarouselNext(mainTrack, lists)
-    }
-  }
-   }, false);
+
 
 
 //скрытие показ выбранного пункта меню
@@ -253,13 +324,13 @@ Array.prototype.filter.call(btnCancels, function (btn) {
   });
 });
 
-let popapTemperature = document.getElementById('popap-temperature');
+
 //всплывающее окно с температурой  
 Array.prototype.filter.call(cardTemperatures, function (cardTemperature) {
   cardTemperature.addEventListener('click', function () {
     document.body.style.overflow = 'hidden';
     document.querySelector('.wrapper').classList.add('wrapper_blur');
-    popapTemperature.classList.add('popap__temperature');
+    document.getElementById('popap-temperature').classList.add('popap__temperature');
   });
 });
 //всплывающее окно с яркостью  
@@ -301,5 +372,4 @@ floorSlider.addEventListener('click', function (e) {
   arrow.style.duration = '2000ms';
   arrow.style.easing = 'linear';
 })
-
 
