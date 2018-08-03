@@ -285,6 +285,7 @@ Array.prototype.filter.call(yellowLinks, function (link, index) {
       }
     })
     link.classList.add('favorite-devices__link_active');
+    sortLinks(link.dataset.type);
     }
   })
 });
