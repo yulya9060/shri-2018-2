@@ -1,7 +1,5 @@
 import './index.scss';
 import '../../fonts/fonts';
-import clippedText from '../../js/clippedText';
-clippedText();
 
 let screenWidth = document.documentElement.clientWidth;
 //containers
@@ -339,31 +337,16 @@ const handlEndCard=(popapId,cardType)=>(event)=>{
 }
 //всплывающее окно с температурой  
 Array.prototype.filter.call(cardTemperatures, function (cardTemperature) {
-  cardTemperature.addEventListener('click', function () {
-    document.body.style.overflow = 'hidden';
-    document.querySelector('.wrapper').classList.add('wrapper_blur');
-    document.getElementById('popap-temperature').classList.add('popap__temperature');
-  });
   cardTemperature.addEventListener('touchstart', handleStart, { passive: false });
   cardTemperature.addEventListener('touchend', handlEndCard('popap-temperature','popap__temperature'), { passive: false });
 });
 //всплывающее окно с яркостью  
 Array.prototype.filter.call(cardLights, function (cardLight) {
-  cardLight.addEventListener('click', function () {
-    document.body.style.overflow = 'hidden';
-    document.querySelector('.wrapper').classList.add('wrapper_blur');
-    document.getElementById('popap-light').classList.add('popap__light');
-  });
   cardLight.addEventListener('touchstart', handleStart, { passive: false });
   cardLight.addEventListener('touchend', handlEndCard('popap-light','popap__light'), { passive: false });
 });
 //всплывающее окно с температурой пола  
 Array.prototype.filter.call(cardFloors, function (cardFloor) {
-  cardFloor.addEventListener('click', function () {
-    document.body.style.overflow = 'hidden';
-    document.querySelector('.wrapper').classList.add('wrapper_blur');
-    document.getElementById('popap-floor').classList.add('popap__floor');
-  });
   cardFloor.addEventListener('touchstart', handleStart, { passive: false });
   cardFloor.addEventListener('touchend', handlEndCard('popap-floor','popap__floor'), { passive: false });
 

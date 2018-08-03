@@ -7,11 +7,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_scss__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__index_scss__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__fonts_fonts__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__js_clippedText__ = __webpack_require__(4);
 
 
-
-Object(__WEBPACK_IMPORTED_MODULE_2__js_clippedText__["a" /* default */])();
 
 let screenWidth = document.documentElement.clientWidth;
 //containers
@@ -349,31 +346,16 @@ const handlEndCard=(popapId,cardType)=>(event)=>{
 }
 //всплывающее окно с температурой  
 Array.prototype.filter.call(cardTemperatures, function (cardTemperature) {
-  cardTemperature.addEventListener('click', function () {
-    document.body.style.overflow = 'hidden';
-    document.querySelector('.wrapper').classList.add('wrapper_blur');
-    document.getElementById('popap-temperature').classList.add('popap__temperature');
-  });
   cardTemperature.addEventListener('touchstart', handleStart, { passive: false });
   cardTemperature.addEventListener('touchend', handlEndCard('popap-temperature','popap__temperature'), { passive: false });
 });
 //всплывающее окно с яркостью  
 Array.prototype.filter.call(cardLights, function (cardLight) {
-  cardLight.addEventListener('click', function () {
-    document.body.style.overflow = 'hidden';
-    document.querySelector('.wrapper').classList.add('wrapper_blur');
-    document.getElementById('popap-light').classList.add('popap__light');
-  });
   cardLight.addEventListener('touchstart', handleStart, { passive: false });
   cardLight.addEventListener('touchend', handlEndCard('popap-light','popap__light'), { passive: false });
 });
 //всплывающее окно с температурой пола  
 Array.prototype.filter.call(cardFloors, function (cardFloor) {
-  cardFloor.addEventListener('click', function () {
-    document.body.style.overflow = 'hidden';
-    document.querySelector('.wrapper').classList.add('wrapper_blur');
-    document.getElementById('popap-floor').classList.add('popap__floor');
-  });
   cardFloor.addEventListener('touchstart', handleStart, { passive: false });
   cardFloor.addEventListener('touchend', handlEndCard('popap-floor','popap__floor'), { passive: false });
 
@@ -424,32 +406,6 @@ floorSlider.addEventListener('click', function (e) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony default export */ __webpack_exports__["a"] = (()=>{
-    let cards =document.querySelectorAll('.card');
-    let title =document.querySelectorAll('.card__title');
-for (let i = 0; i <title.length; i++) {
-    let parent=title[i].parentElement;
-    let  text = title[i].innerHTML;
-    let clone = document.createElement('div');
-  clone.style.position = 'absolute';
-clone.style.visibility = 'hidden';
-clone.style.width = title[i].clientWidth + 'px';
-clone.innerHTML = text;
-parent.appendChild(clone);
-var l = text.length - 1;
-  for (; l >= 0 && clone.clientHeight > title[i].clientHeight; --l) {
-    clone.innerHTML = text.substring(0, l) + '...';
-}
-  title[i].innerHTML = clone.innerHTML;
-  console.log( clone.clientHeight,title[i].clientHeight);
-}
-});
 
 /***/ })
 ],[0]);
