@@ -262,8 +262,9 @@ Array.prototype.filter.call(menuDropdownLinks, function (link) {
     if ((finalPoint.pageX === initialPoint.pageX) && (finalPoint.pageY === initialPoint.pageY)){
     let linkText = link.innerHTML;
     selectMenuDropDown.innerHTML = linkText;
+    selectMenuDropDown.setAttribute('data-type',link.getAttribute('data-type'));
     favoriteDevices.querySelector('.menu-dropdown__items').classList.toggle('menu-dropdown__items_active');
-    sortLinks(this.dataset.type);
+    sortLinks(selectMenuDropDown.dataset.type);
     }
   });
 })
@@ -284,7 +285,6 @@ Array.prototype.filter.call(yellowLinks, function (link, index) {
       }
     })
     link.classList.add('favorite-devices__link_active');
-    sortLinks(this.dataset.type);
     }
   })
 });
