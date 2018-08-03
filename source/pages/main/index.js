@@ -254,34 +254,47 @@ favoriteScenariosCarousel.addEventListener("touchend", handleEndScenarios(favori
 
 //скрытие показ выбранного пункта меню
 Array.prototype.filter.call(menuDropdownLinks, function (link) {
-  link.addEventListener('click', function () {
+  link.addEventListener('touchstart', handleStart, { passive: false });
+  link.addEventListener('touchend', function () {
+    event.preventDefault();
+    event.stopPropagation();
+    finalPoint = event.changedTouches[0];
+    if ((finalPoint.pageX === initialPoint.pageX) && (finalPoint.pageY === initialPoint.pageY)){
     let linkText = link.innerHTML;
     selectMenuDropDown.innerHTML = linkText;
+    selectMenuDropDown.setAttribute('data-type',link.getAttribute('data-type'));
     favoriteDevices.querySelector('.menu-dropdown__items').classList.toggle('menu-dropdown__items_active');
-    sortLinks(this.dataset.type);
+    sortLinks(selectMenuDropDown.dataset.type);
+    }
   });
 })
 
 //выбор активного пункта меню
 Array.prototype.filter.call(yellowLinks, function (link, index) {
   let yellowLinksArr = Array.from(yellowLinks);
-  link.addEventListener('click', function () {
+  link.addEventListener('touchstart', handleStart, { passive: false });
+  link.addEventListener('touchend', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    finalPoint = event.changedTouches[0];
+    if ((finalPoint.pageX === initialPoint.pageX) && (finalPoint.pageY === initialPoint.pageY)){
+     
     yellowLinksArr.map((el, i) => {
       if (i !== index) {
         el.classList.remove('favorite-devices__link_active');
       }
     })
     link.classList.add('favorite-devices__link_active');
-    sortLinks(this.dataset.type);
-  });
-})
+    }
+  })
+});
 
 //сортировка избранных устройств
 let sortLinks = (dataType) => {
 
   favoriteDevicesCard.map(el => {
     el.parentElement.style.display = 'flex';
-    if (dataType === 'all' || dataType === undefined) {
+    if (dataType === 'all') {
       el.parentElement.style.display = 'flex';
     }
     else if (el.getAttribute('data-card') !== dataType) {
@@ -292,8 +305,15 @@ let sortLinks = (dataType) => {
 
 //показ и скрытие выпадающего меню в мобильной версии
 Array.prototype.filter.call(menuDropDownToggles, function (btn) {
-  btn.addEventListener('click', function () {
+  btn.addEventListener('touchstart', handleStart, { passive: false });
+  btn.addEventListener('touchend', function () {
+    event.preventDefault();
+    event.stopPropagation();
+    finalPoint = event.changedTouches[0];
+    if ((finalPoint.pageX === initialPoint.pageX) && (finalPoint.pageY === initialPoint.pageY)){
+     
     favoriteDevices.querySelector('.menu-dropdown__items').classList.toggle('menu-dropdown__items_active');
+    }
   });
 })
 

@@ -502,14 +502,14 @@
             width: 100%;
             text-align: end;
         }
-        &:hover {
-            cursor: pointer;
-            background-color: rgba(107, 107, 107, 0.2);
-        }
-        &:active {
-            cursor: pointer;
-            background-color: rgba(107, 107, 107, 0.8);
-        }
+        // &:hover {
+        //     cursor: pointer;
+        //     background-color: rgba(107, 107, 107, 0.2);
+        // }
+        // &:active {
+        //     cursor: pointer;
+        //     background-color: rgba(107, 107, 107, 0.8);
+        // }
         &_paddingRight {
             @include phones {
                 padding-right: 28px;
