@@ -333,8 +333,20 @@ Array.prototype.filter.call(btnCancels, function (btn) {
     }
   });
 });
+const openCard=(popapId,cardType)=>{
+  document.body.style.overflow = 'hidden';
+  document.querySelector('.wrapper').classList.add('wrapper_blur');
+  document.getElementById(popapId).classList.add(cardType);
+}
 
 
+const handlEndCard=(popapId,cardType)=>(event)=>{
+  event.preventDefault();
+  finalPoint = event.changedTouches[0];
+  if ((finalPoint.pageX === initialPoint.pageX) && (finalPoint.pageY === initialPoint.pageY)){
+    openCard(popapId,cardType);
+  } 
+}
 //всплывающее окно с температурой  
 Array.prototype.filter.call(cardTemperatures, function (cardTemperature) {
   cardTemperature.addEventListener('click', function () {
@@ -342,6 +354,8 @@ Array.prototype.filter.call(cardTemperatures, function (cardTemperature) {
     document.querySelector('.wrapper').classList.add('wrapper_blur');
     document.getElementById('popap-temperature').classList.add('popap__temperature');
   });
+  cardTemperature.addEventListener('touchstart', handleStart, { passive: false });
+  cardTemperature.addEventListener('touchend', handlEndCard('popap-temperature','popap__temperature'), { passive: false });
 });
 //всплывающее окно с яркостью  
 Array.prototype.filter.call(cardLights, function (cardLight) {
@@ -350,6 +364,8 @@ Array.prototype.filter.call(cardLights, function (cardLight) {
     document.querySelector('.wrapper').classList.add('wrapper_blur');
     document.getElementById('popap-light').classList.add('popap__light');
   });
+  cardLight.addEventListener('touchstart', handleStart, { passive: false });
+  cardLight.addEventListener('touchend', handlEndCard('popap-light','popap__light'), { passive: false });
 });
 //всплывающее окно с температурой пола  
 Array.prototype.filter.call(cardFloors, function (cardFloor) {
@@ -358,6 +374,9 @@ Array.prototype.filter.call(cardFloors, function (cardFloor) {
     document.querySelector('.wrapper').classList.add('wrapper_blur');
     document.getElementById('popap-floor').classList.add('popap__floor');
   });
+  cardFloor.addEventListener('touchstart', handleStart, { passive: false });
+  cardFloor.addEventListener('touchend', handlEndCard('popap-floor','popap__floor'), { passive: false });
+
 });
 
 //слайдер измерения температуры пола
